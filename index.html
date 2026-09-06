@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Programa guiado de 90 dias para fazer a IA indicar o seu negócio: calendário dia a dia, medição com faixa de erro e diagnóstico assistido. Baseado em evidência publicada.">
+<meta name="theme-color" content="#F2F4EF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1512" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Método 90 Dias">
+<meta property="og:description" content="Programa guiado de 90 dias para fazer a IA indicar o seu negócio.">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="%230E3226"/><path d="M6 8h12l-8 8h8" stroke="%236FA98B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'>
+<link rel="apple-touch-icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="%230E3226"/><path d="M6 8h12l-8 8h8" stroke="%236FA98B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'>
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Método 90">
+<title>Método 90 Dias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════ TOKENS ═══════════ */
+:root{
+  color-scheme:light;
+  --pinho:#0E3226; --pinho-2:#17462F;
+  --folha:#2E7D5B; --folha-t:#1B5A40;
+  --mar:#2F6F84;   --mar-t:#245867;
+  --ocre:#A8781F;  --ocre-t:#7A5510;
+  --brasa:#8E4229; --brasa-t:#7A3722;
+  --papel:#F2F4EF; --carta:#FFFFFF; --carta-2:#EAEEE7;
+  --tinta:#141A17; --tinta-2:#4C574F; --tinta-3:#75817A;
+  --linha:#D3DACE; --linha-2:#E3E8DF;
+  --sel:rgba(46,125,91,.12);
+  --sobre-acento:#FFFFFF;
+  --sombra:0 1px 2px rgba(14,50,38,.06),0 6px 18px -10px rgba(14,50,38,.18);
+  --sombra-alta:0 -2px 24px rgba(14,50,38,.14);
+  --ff-ui:"Bricolage Grotesque",system-ui,-apple-system,sans-serif;
+  --ff-ler:"Newsreader",Georgia,serif;
+  --ff-num:"DM Mono",ui-monospace,monospace;
+  --r:10px; --r-s:7px;
+  --col:640px;
+  --barra:64px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --pinho:#0B2019; --pinho-2:#183A2B;
+    --folha:#4FA47C; --folha-t:#6FBE96;
+    --mar:#5A9FB5;   --mar-t:#7FBACD;
+    --ocre:#D6A544;  --ocre-t:#E2BB6B;
+    --brasa:#D06B48; --brasa-t:#DE8969;
+    --papel:#0F1512; --carta:#18201B; --carta-2:#212B24;
+    --tinta:#E6EDE8; --tinta-2:#A6B3AB; --tinta-3:#7E8C85;
+    --linha:#2C3A32; --linha-2:#232E28;
+    --sel:rgba(79,164,124,.16);
+    --sobre-acento:#08130E;
+    --sombra:0 1px 2px rgba(0,0,0,.4),0 6px 18px -10px rgba(0,0,0,.6);
+    --sombra-alta:0 -2px 28px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --pinho:#0B2019;
+  --folha:#4FA47C; --folha-t:#6FBE96;
+  --mar:#5A9FB5;   --mar-t:#7FBACD;
+  --ocre:#D6A544;  --ocre-t:#E2BB6B;
+  --brasa:#D06B48; --brasa-t:#DE8969;
+  --papel:#0F1512; --carta:#18201B; --carta-2:#212B24;
+  --tinta:#E6EDE8; --tinta-2:#A6B3AB; --tinta-3:#7E8C85;
+  --linha:#2C3A32; --linha-2:#232E28;
+  --sel:rgba(79,164,124,.16);
+  --sobre-acento:#08130E;
+  --sombra:0 1px 2px rgba(0,0,0,.4),0 6px 18px -10px rgba(0,0,0,.6);
+  --sombra-alta:0 -2px 28px rgba(0,0,0,.5);
+}
+
+/* ═══════════ BASE ═══════════ */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--papel);color:var(--tinta);
+  font-family:var(--ff-ui);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
+h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.18;letter-spacing:-.015em;text-wrap:balance}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:2.5px solid var(--folha);outline-offset:2px;border-radius:4px}
+.num{font-family:var(--ff-num);font-variant-numeric:tabular-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ═══════════ CASCA ═══════════ */
+.app{min-height:100dvh;display:flex;flex-direction:column}
+.topo{position:sticky;top:0;z-index:20;background:var(--papel);
+  border-bottom:1px solid var(--linha);padding:.55rem .9rem;
+  display:flex;align-items:center;gap:.6rem}
+.topo-marca{display:flex;align-items:center;gap:.45rem;min-width:0}
+.topo-marca svg{width:22px;height:22px;flex:none}
+.topo-t{font-size:.9rem;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+.topo-sub{font-family:var(--ff-num);font-size:.68rem;color:var(--tinta-3);white-space:nowrap}
+.topo-dir{margin-left:auto;display:flex;gap:.3rem;align-items:center}
+.icb{width:38px;height:38px;border-radius:var(--r-s);display:grid;place-items:center;color:var(--tinta-2)}
+.icb:hover{background:var(--carta-2);color:var(--tinta)}
+.icb svg{width:19px;height:19px}
+
+.corpo{flex:1;width:100%;max-width:var(--col);margin:0 auto;
+  padding:1rem .9rem calc(var(--barra) + 2.4rem);}
+
+.abas{position:fixed;left:0;right:0;bottom:0;z-index:30;
+  background:var(--carta);border-top:1px solid var(--linha);
+  display:grid;grid-template-columns:repeat(5,1fr);
+  padding-bottom:env(safe-area-inset-bottom)}
+.aba{height:var(--barra);display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:2px;color:var(--tinta-3);font-size:.66rem;font-weight:600;
+  position:relative;transition:color .15s}
+.aba svg{width:21px;height:21px}
+.aba[aria-current="page"]{color:var(--folha-t)}
+.aba[aria-current="page"]::before{content:"";position:absolute;top:0;left:22%;right:22%;
+  height:2.5px;background:var(--folha);border-radius:0 0 3px 3px}
+.aba-pip{position:absolute;top:9px;right:calc(50% - 18px);min-width:15px;height:15px;
+  border-radius:8px;background:var(--brasa);color:var(--sobre-acento);font-family:var(--ff-num);
+  font-size:.6rem;display:grid;place-items:center;padding:0 3px}
+
+@media (min-width:900px){
+  :root{--col:700px}
+  .app{flex-direction:row}
+  .abas{position:sticky;top:0;bottom:auto;left:auto;right:auto;height:100dvh;
+    width:200px;flex:none;grid-template-columns:1fr;grid-auto-rows:min-content;
+    align-content:start;gap:2px;padding:5.2rem .6rem 1rem;border-top:0;
+    border-right:1px solid var(--linha);background:var(--papel)}
+  .aba{height:46px;flex-direction:row;justify-content:flex-start;gap:.7rem;
+    padding:0 .8rem;border-radius:var(--r-s);font-size:.86rem}
+  .aba[aria-current="page"]{background:var(--sel)}
+  .aba[aria-current="page"]::before{top:12px;bottom:12px;left:0;right:auto;
+    width:2.5px;height:auto;border-radius:0 3px 3px 0}
+  .aba-pip{position:static;margin-left:auto}
+  .topo{position:fixed;top:0;left:0;right:0;z-index:40;background:var(--papel)}
+  .corpo{padding:4.6rem 1.5rem 4rem}
+  .quadro{flex:1;display:flex;justify-content:center}
+}
+
+/* ═══════════ PRIMITIVAS ═══════════ */
+.pilha{display:flex;flex-direction:column;gap:.9rem}
+.pilha-s{display:flex;flex-direction:column;gap:.5rem}
+.linha{display:flex;align-items:center;gap:.55rem}
+.cartao{background:var(--carta);border:1px solid var(--linha);border-radius:var(--r);
+  box-shadow:var(--sombra);overflow:hidden}
+.cartao-p{padding:.95rem 1rem}
+.sec-t{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--tinta-3);margin-bottom:.5rem}
+.h-tela{font-size:1.6rem;letter-spacing:-.03em}
+.h-sec{font-size:1.08rem}
+.sub{color:var(--tinta-2);font-size:.9rem;line-height:1.5}
+.mini{font-size:.78rem;color:var(--tinta-3);line-height:1.45}
+
+.chip{display:inline-flex;align-items:center;gap:.25rem;font-size:.7rem;font-weight:700;
+  padding:.18rem .45rem;border-radius:5px;background:var(--carta-2);color:var(--tinta-2);
+  white-space:nowrap;letter-spacing:.01em}
+.chip.ok{background:color-mix(in srgb,var(--folha) 16%,transparent);color:var(--folha-t)}
+.chip.at{background:color-mix(in srgb,var(--ocre) 20%,transparent);color:var(--ocre-t)}
+.chip.cr{background:color-mix(in srgb,var(--brasa) 18%,transparent);color:var(--brasa-t)}
+.chip.dt{background:color-mix(in srgb,var(--mar) 16%,transparent);color:var(--mar-t)}
+
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
+  min-height:46px;padding:.6rem 1.05rem;border-radius:var(--r-s);
+  font-size:.92rem;font-weight:700;background:var(--folha);color:var(--sobre-acento);
+  transition:filter .15s;border:1px solid transparent}
+.bt:hover{filter:brightness(1.08)}
+.bt:disabled{opacity:.45;cursor:not-allowed}
+.bt.sec{background:var(--carta);color:var(--tinta);border-color:var(--linha)}
+.bt.sec:hover{background:var(--carta-2);filter:none}
+.bt.fant{background:transparent;color:var(--tinta-2);min-height:40px;padding:.4rem .6rem;font-weight:600}
+.bt.fant:hover{color:var(--brasa-t);filter:none}
+.bt.larg{width:100%}
+.bt svg{width:17px;height:17px;flex:none}
+
+.campo{display:flex;flex-direction:column;gap:.3rem}
+.campo>span{font-size:.78rem;font-weight:600;color:var(--tinta-2)}
+.campo input,.campo select,.campo textarea{
+  width:100%;padding:.62rem .7rem;min-height:46px;border:1px solid var(--linha);
+  border-radius:var(--r-s);background:var(--carta);font-size:.95rem}
+.campo textarea{min-height:76px;resize:vertical;line-height:1.45}
+.campo input:focus,.campo select:focus,.campo textarea:focus{border-color:var(--folha);outline:none;box-shadow:0 0 0 3px var(--sel)}
+.grade2{display:grid;gap:.7rem}
+@media(min-width:560px){.grade2{grid-template-columns:1fr 1fr}}
+
+.vazio{text-align:center;padding:2.2rem 1.2rem;color:var(--tinta-2)}
+.vazio svg{width:34px;height:34px;color:var(--tinta-3);margin-bottom:.6rem}
+.vazio h3{font-size:1rem;margin-bottom:.3rem;color:var(--tinta)}
+</style>
+<style>
+/* ═══════════ HOJE ═══════════ */
+.hoje-cab{display:flex;align-items:flex-start;gap:1rem;margin-bottom:.2rem}
+.hoje-cab .dia-n{font-family:var(--ff-num);font-size:.74rem;color:var(--tinta-3);letter-spacing:.04em}
+.anel{--p:0;width:62px;height:62px;flex:none;border-radius:50%;display:grid;place-items:center;
+  background:conic-gradient(var(--folha) calc(var(--p)*1%), var(--linha-2) 0)}
+.anel i{width:50px;height:50px;border-radius:50%;background:var(--papel);display:grid;place-items:center;
+  font-family:var(--ff-num);font-size:.86rem;font-style:normal;color:var(--tinta)}
+
+.tarefa{display:grid;grid-template-columns:26px 1fr;gap:.7rem;padding:.75rem .9rem;
+  border-top:1px solid var(--linha-2);align-items:start;text-align:left;width:100%}
+.tarefa:first-of-type{border-top:0}
+.tarefa:hover{background:var(--carta-2)}
+.tk{width:24px;height:24px;border-radius:6px;border:2px solid var(--linha);
+  display:grid;place-items:center;flex:none;margin-top:1px;transition:all .15s;background:var(--carta)}
+.tk svg{width:14px;height:14px;color:var(--sobre-acento);opacity:0}
+.tarefa.feita .tk{background:var(--folha);border-color:var(--folha)}
+.tarefa.feita .tk svg{opacity:1}
+.tarefa.feita .tarefa-n{color:var(--tinta-3);text-decoration:line-through;text-decoration-color:var(--linha)}
+.tarefa-n{font-size:.94rem;font-weight:600;line-height:1.35}
+.tarefa-m{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.3rem;align-items:center}
+.tarefa-d{font-size:.8rem;color:var(--tinta-2);margin-top:.35rem;line-height:1.45}
+
+.faixa-frente{width:3px;border-radius:2px;align-self:stretch}
+.fr-medicao{background:var(--mar)} .fr-tecnico{background:var(--pinho-2)}
+.fr-conteudo{background:var(--ocre)} .fr-rede{background:var(--folha)}
+.fr-governanca{background:var(--tinta-3)} .fr-reparo{background:var(--brasa)}
+
+/* ═══════════ CALENDÁRIO ═══════════ */
+.cal-nav{display:flex;align-items:center;gap:.4rem;margin-bottom:.7rem}
+.cal-mes{font-size:1rem;font-weight:700;text-transform:capitalize;flex:1}
+.cal-grade{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cal-dow{font-size:.64rem;font-weight:700;color:var(--tinta-3);text-align:center;
+  padding:.3rem 0;letter-spacing:.05em;text-transform:uppercase}
+.cal-d{aspect-ratio:1;border-radius:var(--r-s);background:var(--carta);border:1px solid var(--linha-2);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  position:relative;padding:2px;transition:border-color .12s}
+.cal-d:hover{border-color:var(--folha)}
+.cal-d.fora{background:transparent;border-color:transparent;color:var(--tinta-3);opacity:.45}
+.cal-d.dentro{background:var(--carta)}
+.cal-d.hoje{border-color:var(--folha);border-width:2px}
+.cal-d.sel{background:var(--pinho);border-color:var(--pinho)}
+.cal-d.sel .cal-n{color:#fff}
+.cal-n{font-family:var(--ff-num);font-size:.82rem;line-height:1}
+.cal-pts{display:flex;gap:2px;height:5px;align-items:center}
+.cal-pts i{width:5px;height:5px;border-radius:50%;display:block}
+.cal-marco{position:absolute;top:2px;right:2px;width:7px;height:7px;
+  background:var(--pinho);transform:rotate(45deg)}
+.cal-d.sel .cal-marco{background:#fff}
+.cal-leg{display:flex;flex-wrap:wrap;gap:.5rem .9rem;margin-top:.8rem;font-size:.72rem;color:var(--tinta-2)}
+.cal-leg span{display:inline-flex;align-items:center;gap:.32rem}
+.cal-leg i{width:8px;height:8px;border-radius:50%}
+
+/* ═══════════ FOLHA ═══════════ */
+.folha-fundo{position:fixed;inset:0;z-index:50;background:rgba(10,20,16,.5);
+  backdrop-filter:blur(2px);animation:aparece .18s ease}
+.folha{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--papel);
+  border-radius:16px 16px 0 0;box-shadow:var(--sombra-alta);max-height:88dvh;
+  display:flex;flex-direction:column;animation:sobe .22s cubic-bezier(.2,.8,.3,1)}
+.folha-p{width:36px;height:4px;border-radius:2px;background:var(--linha);margin:.55rem auto .1rem;flex:none}
+.folha-cab{padding:.5rem 1rem .7rem;border-bottom:1px solid var(--linha);flex:none;
+  display:flex;align-items:flex-start;gap:.7rem}
+.folha-corpo{overflow-y:auto;padding:.9rem 1rem 2rem;-webkit-overflow-scrolling:touch}
+@keyframes sobe{from{transform:translateY(14px);opacity:.6}to{transform:none;opacity:1}}
+@keyframes aparece{from{opacity:0}to{opacity:1}}
+@media(min-width:900px){
+  .folha{left:auto;right:0;top:0;bottom:0;width:min(460px,42vw);border-radius:0;
+    max-height:none;animation:entra .22s cubic-bezier(.2,.8,.3,1)}
+  .folha-p{display:none}
+  @keyframes entra{from{transform:translateX(20px);opacity:.5}to{transform:none;opacity:1}}
+}
+
+/* ═══════════ ASSISTENTE (diagnóstico) ═══════════ */
+.dg{background:var(--carta);border:1px solid var(--linha);border-radius:var(--r);
+  box-shadow:var(--sombra);overflow:hidden}
+.dg-topo{background:var(--pinho);padding:.85rem 1rem;color:#DCE8E0}
+.dg-passos{display:flex;gap:5px;margin-bottom:.55rem}
+.dg-passos i{height:3px;flex:1;border-radius:2px;background:rgba(255,255,255,.22)}
+.dg-passos i.on{background:var(--folha)}
+.dg-passos i.done{background:rgba(255,255,255,.6)}
+.dg-etq{font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#8FB8A2}
+.dg-q{padding:1.1rem 1rem .3rem}
+.dg-q h3{font-size:1.14rem;line-height:1.28}
+.dg-q p{margin-top:.4rem;color:var(--tinta-2);font-size:.86rem;line-height:1.5}
+.dg-ops{display:flex;flex-direction:column;gap:.5rem;padding:.9rem 1rem 1rem}
+.op{display:grid;grid-template-columns:1fr auto;gap:.7rem;align-items:center;text-align:left;
+  padding:.85rem .9rem;border:1.5px solid var(--linha);border-radius:var(--r-s);
+  background:var(--carta);transition:all .14s}
+.op:hover{border-color:var(--folha);background:var(--sel)}
+.op b{display:block;font-size:.95rem;line-height:1.3}
+.op span{display:block;font-size:.79rem;color:var(--tinta-2);margin-top:.2rem;line-height:1.45}
+.op svg{width:17px;height:17px;color:var(--tinta-3);flex:none}
+.op:hover svg{color:var(--folha-t)}
+.dg-pe{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;
+  border-top:1px solid var(--linha-2);background:var(--carta-2)}
+
+.res{border-radius:var(--r);overflow:hidden;border:1px solid var(--linha);box-shadow:var(--sombra)}
+.res-cab{padding:1rem;color:var(--sobre-acento)}
+.res-cab.a{background:var(--folha)} .res-cab.b{background:var(--ocre-t)} .res-cab.c{background:var(--brasa)}
+.res-cab .et{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.res-cab h3{font-size:1.2rem;margin-top:.25rem}
+.res-corpo{background:var(--carta);padding:1rem;display:flex;flex-direction:column;gap:.85rem}
+.res-bl>b{display:block;font-size:.72rem;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--tinta-3);margin-bottom:.22rem}
+.res-bl>p{font-size:.9rem;line-height:1.55;color:var(--tinta-2)}
+.res-bl>p strong{color:var(--tinta)}
+
+/* ═══════════ MEDIÇÃO ═══════════ */
+.step{display:inline-flex;align-items:center;border:1px solid var(--linha);border-radius:8px;
+  overflow:hidden;background:var(--carta);flex:none}
+.step button{width:38px;height:40px;display:grid;place-items:center;color:var(--tinta-2);font-size:1.1rem}
+.step button:hover{background:var(--carta-2);color:var(--tinta)}
+.step b{min-width:44px;text-align:center;font-family:var(--ff-num);font-size:.95rem;
+  border-left:1px solid var(--linha-2);border-right:1px solid var(--linha-2);line-height:40px}
+.mq{display:flex;gap:.7rem;align-items:center;padding:.7rem .9rem;border-top:1px solid var(--linha-2)}
+.mq:first-child{border-top:0}
+.mq-t{flex:1;min-width:0;font-size:.87rem;line-height:1.35}
+.mq-t small{display:block;font-size:.7rem;color:var(--tinta-3);margin-top:.15rem}
+.motores{display:flex;gap:.4rem;flex-wrap:wrap}
+.mot{padding:.45rem .8rem;border-radius:20px;border:1.5px solid var(--linha);
+  font-size:.82rem;font-weight:600;background:var(--carta);min-height:40px}
+.mot[aria-pressed="true"]{background:var(--mar);border-color:var(--mar);color:var(--sobre-acento)}
+
+.kpi{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--linha-2)}
+@media(min-width:520px){.kpi{grid-template-columns:repeat(4,1fr)}}
+.kpi>div{background:var(--carta);padding:.8rem .85rem}
+.kpi b{display:block;font-family:var(--ff-num);font-size:1.3rem;line-height:1.15;color:var(--tinta)}
+.kpi span{display:block;font-size:.7rem;color:var(--tinta-3);margin-top:.25rem;line-height:1.35}
+.graf{width:100%;height:auto;display:block}
+
+/* ═══════════ FICHAS ═══════════ */
+.ficha{border:1px solid var(--linha);border-radius:var(--r);background:var(--carta);overflow:hidden}
+.ficha-b{display:flex;align-items:center;gap:.7rem;width:100%;text-align:left;padding:.9rem 1rem;min-height:56px}
+.ficha-b h3{font-size:.98rem;flex:1}
+.ficha-b .cv{width:16px;height:16px;color:var(--tinta-3);transition:transform .2s;flex:none}
+.ficha-b[aria-expanded="true"] .cv{transform:rotate(180deg)}
+.ficha-c{padding:0 1rem 1.1rem;font-family:var(--ff-ler);font-size:1rem;line-height:1.62;color:var(--tinta-2)}
+.ficha-c[hidden]{display:none}
+.ficha-c p{margin:0 0 .8rem}
+.ficha-c p:last-child{margin-bottom:0}
+.ficha-c strong{color:var(--tinta);font-weight:600}
+.ficha-c ol,.ficha-c ul{margin:0 0 .8rem;padding-left:1.15rem}
+.ficha-c li{margin-bottom:.4rem}
+.ficha-c .destaque{font-family:var(--ff-ui);font-size:.86rem;line-height:1.5;
+  background:var(--carta-2);border-left:2.5px solid var(--folha);
+  padding:.7rem .85rem;border-radius:0 6px 6px 0;margin:0 0 .8rem}
+.ficha-c .destaque b{color:var(--tinta)}
+.tab-min{width:100%;border-collapse:collapse;font-family:var(--ff-ui);font-size:.82rem;margin:0 0 .8rem}
+.tab-min th{text-align:left;font-weight:700;color:var(--tinta);border-bottom:1.5px solid var(--linha);padding:.4rem .5rem .4rem 0}
+.tab-min td{border-bottom:1px solid var(--linha-2);padding:.45rem .5rem .45rem 0;vertical-align:top;line-height:1.4}
+
+/* ═══════════ MISC ═══════════ */
+.rolo{overflow-x:auto}
+.aviso{display:flex;gap:.6rem;align-items:flex-start;padding:.75rem .85rem;border-radius:var(--r-s);
+  background:color-mix(in srgb,var(--ocre) 13%,transparent);font-size:.83rem;line-height:1.5;color:var(--tinta-2)}
+.aviso svg{width:17px;height:17px;color:var(--ocre-t);flex:none;margin-top:1px}
+.aviso b{color:var(--tinta)}
+.aviso.dt{background:color-mix(in srgb,var(--mar) 12%,transparent)}
+.aviso.dt svg{color:var(--mar-t)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--barra) + 14px);
+  z-index:80;background:var(--pinho);color:#EAF1EC;padding:.65rem 1rem;border-radius:22px;
+  font-size:.86rem;font-weight:600;box-shadow:var(--sombra-alta);animation:aparece .16s}
+@media(min-width:900px){.toast{bottom:20px}}
+.marco-c{background:var(--pinho);color:#DCE8E0;border-radius:var(--r);padding:.95rem 1rem}
+.marco-c h3{color:#fff;font-size:1rem;margin-bottom:.3rem}
+.marco-c p{font-size:.85rem;line-height:1.5;color:#A9C4B4}
+.marco-c .et{font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--folha);text-transform:uppercase}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/htm/3.1.1/htm.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.13/dayjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.13/locale/pt-br.min.js"></script>
+</head>
+<body>
+<div id="raiz"></div>
+<script>
+"use strict";
+dayjs.locale("pt-br");
+const html = htm.bind(React.createElement);
+const { useState, useEffect, useMemo, useRef, useCallback } = React;
+
+/* ═════════ CATÁLOGO DO MÉTODO ═════════ */
+const FRENTES = {
+  medicao:{n:"Medição"}, tecnico:{n:"Técnico"}, conteudo:{n:"Conteúdo"},
+  rede:{n:"Rede"}, governanca:{n:"Governança"}, reparo:{n:"Reparo"}
+};
+
+const TAREFAS = [
+{id:"T1",f:"medicao",crit:1,d0:1,d1:7,ir:"carteira",
+ n:"Montar a carteira de perguntas",
+ o:"Definir as 20 a 30 perguntas que você vai medir pelos próximos 90 dias.",
+ p:["Escreva cada pergunta do jeito que o cliente fala — não do jeito que você descreve o serviço.",
+    "Cubra as quatro intenções: descoberta, comparação, problema e validação.",
+    "No máximo um quarto pode ser de validação: elas quase sempre dão positivo e inflam o resultado.",
+    "Congele a lista quando terminar. Trocar pergunta no meio quebra a comparação com o baseline."]},
+{id:"T2",f:"medicao",d0:1,d1:10,ir:"medir",
+ n:"Preparar a rotina de coleta",
+ o:"Definir onde e como você vai registrar as consultas todo dia.",
+ p:["Escolha três motores. ChatGPT, Google AI Mode e Perplexity cobrem bem o mercado brasileiro.",
+    "Sempre em janela anônima e deslogado — a IA personaliza pelo seu histórico.",
+    "Confira a localização que o navegador informa. Resposta local muda inteira com o CEP.",
+    "Reserve 30 a 40 minutos por dia. É o custo real do método."]},
+{id:"T3",f:"medicao",crit:1,d0:8,d1:21,ir:"medir",
+ n:"Coletar o baseline",
+ o:"Catorze dias de medição sem mexer em nada no site.",
+ p:["Repita cada pergunta 7 vezes por dia, em cada motor.",
+    "Registre também as rodadas em que a IA não buscou na internet — elas entram na conta.",
+    "Não altere nada no site neste período. Qualquer mudança contamina o baseline.",
+    "Anote os domínios citados, não só se você apareceu. Essa lista é o mapa do seu setor."]},
+{id:"T4",f:"tecnico",d0:3,d1:14,
+ n:"Auditoria técnica do site",
+ o:"Confirmar que a IA consegue ler as suas páginas.",
+ p:["Busque no Google por site:seudominio.com.br e confira se as páginas-alvo aparecem.",
+    "Se a página não aparece na busca comum, ela não existe para a IA.",
+    "Verifique se o conteúdo aparece com o JavaScript desligado.",
+    "Anote cada bloqueio encontrado. Vira tarefa da Fase 1."]},
+{id:"T5",f:"medicao",crit:1,d0:15,d1:24,ir:"diag",
+ n:"Classificar as falhas",
+ o:"Descobrir, pergunta por pergunta, por que você não é citado.",
+ p:["Use o assistente de diagnóstico para cada pergunta em que você não apareceu.",
+    "Ele separa três problemas diferentes: qualidade, página e recuperação.",
+    "Este documento define o trabalho das próximas dez semanas. Não pule.",
+    "Se a maioria cair no Ramo C, pare tudo e trate só o técnico."]},
+{id:"T6",f:"tecnico",d0:15,d1:25,
+ n:"Corrigir o que impede a IA de ler",
+ o:"Desbloquear rastreamento, renderização e indexação.",
+ p:["Corrija robots.txt e qualquer bloqueio de rastreamento.",
+    "Garanta que o conteúdo principal não dependa de JavaScript para aparecer.",
+    "Elimine páginas suas concorrendo pela mesma pergunta — escolha uma, redirecione a outra.",
+    "Critério de pronto: 100% das páginas-alvo indexadas."]},
+{id:"T7",f:"tecnico",d0:18,d1:30,
+ n:"Padronizar os dados da empresa",
+ o:"Mesmo nome, endereço, telefone e categoria em todos os canais.",
+ p:["Compare caractere por caractere: site, Perfil da Empresa no Google, Bing Places, diretórios.",
+    "Divergência entre canais vira descrição errada na resposta da IA.",
+    "Inclua a região de atendimento como o cliente fala: bairro, cidade, cidades vizinhas.",
+    "Atualize horário e serviços. Informação velha derruba citação."]},
+{id:"T8",f:"conteudo",d0:22,d1:45,
+ n:"Reorganizar o site por perguntas",
+ o:"Uma página por pergunta real, não por variação de palavra-chave.",
+ p:["Pegue a carteira de perguntas e mapeie qual página responde a cada uma.",
+    "Pergunta sem página é lacuna. Página sem pergunta provavelmente é ruído.",
+    "Busca escrita como pergunta aciona a IA quase cinco vezes mais que termo solto.",
+    "O Google AI Mode quebra uma pergunta em várias — cubra o conjunto, não o termo."]},
+{id:"T9",f:"rede",d0:25,d1:35,
+ n:"Criar os perfis do seu setor",
+ o:"Estar presente onde a IA vai buscar.",
+ p:["Volte à lista de domínios que você coletou no baseline: é lá que a IA busca.",
+    "Para negócio local: Perfil da Empresa no Google e Bing Places, completos.",
+    "Para software ou serviço B2B: os diretórios de avaliação do nicho.",
+    "Dados idênticos aos do site. Consistência é o que sustenta a citação correta."]},
+{id:"T10",f:"conteudo",crit:1,d0:30,d1:50,ir:"diag",
+ n:"Reparo dirigido a cada falha",
+ o:"Corrigir cada página conforme o tipo de falha que o diagnóstico apontou.",
+ p:["Intenção divergente: remapeie a página para responder à pergunta, não à categoria.",
+    "Lacuna de informação: escreva o que está implícito. A IA não sabe o que não está escrito.",
+    "Informação velha: atualize e date de forma visível.",
+    "Não escreva mais conteúdo por escrever. Em teste, página 53% menor teve desempenho competitivo."]},
+{id:"T11",f:"conteudo",crit:1,d0:35,d1:60,
+ n:"Preço, data e especificações",
+ o:"Colocar os quatro porteiros em cada página-alvo.",
+ p:["Preço ou faixa de preço escrita. “Consulte valores” perde a citação.",
+    "Data de atualização visível e verdadeira.",
+    "Especificação concreta: o que inclui, quanto tempo leva, para quem serve.",
+    "Comparação honesta com as alternativas, inclusive quando você não é a melhor opção."]},
+{id:"T12",f:"conteudo",d0:40,d1:65,
+ n:"Tirar o “talvez” e enxugar",
+ o:"Trocar linguagem hesitante por afirmação com evidência.",
+ p:["Substitua “pode oferecer”, “até” e “talvez” por afirmação verificável.",
+    "Cada afirmação precisa da evidência ao lado. Nunca invente estatística.",
+    "Corte o que não responde à pergunta. Densidade vence tamanho.",
+    "Leia em voz alta: se você não diria isso a um cliente, tire."]},
+{id:"T13",f:"conteudo",d0:45,d1:70,
+ n:"Trazer dado próprio",
+ o:"Um número que só você tem vale mais que dez adjetivos.",
+ p:["Tempo médio de atendimento, número de procedimentos, resultado medido, garantia real.",
+    "Precisa ser verdadeiro, datado e atribuído.",
+    "Estatística inventada é detectável e destrói credibilidade quando conferida.",
+    "Se você não tem nenhum dado próprio, comece a medir um agora."]},
+{id:"T14",f:"rede",d0:45,d1:90,
+ n:"Menções, listas e vídeo",
+ o:"Ser falado fora do seu site.",
+ p:["Menção em vídeo é o que mais anda junto com aparecer na IA — mais que link.",
+    "Entre nas listas “melhores X em Y” que apareceram nas suas citações.",
+    "Uma matéria, um podcast, uma participação. Não precisa ser veículo grande.",
+    "Não compre menção: os filtros antispam da busca valem para as respostas de IA."]},
+{id:"T15",f:"rede",d0:50,d1:90,
+ n:"Programa de avaliações",
+ o:"Volume e recência de avaliações, com resposta a todas.",
+ p:["Peça avaliação no momento de maior satisfação, não no fim do mês.",
+    "Responda a todas — principalmente às ruins. A resposta também é lida.",
+    "Nunca fabrique avaliação. É o caminho mais rápido para o filtro de spam.",
+    "Meta simples: um fluxo constante, não um pico."]},
+{id:"T16",f:"medicao",d0:21,d1:90,ir:"medir",
+ n:"Coleta contínua",
+ o:"Manter a medição rodando todo dia até o dia 90.",
+ p:["Mesmo protocolo do baseline: 7 repetições, 3 motores, sessão limpa.",
+    "Não mude a carteira. Não mude o número de repetições.",
+    "Se falhar um dia, registre a falha em vez de inventar o número.",
+    "É a coleta contínua que permite dizer, no dia 90, se algo mudou de verdade."]},
+{id:"T17",f:"governanca",d0:60,d1:67,ir:"medir",
+ n:"Leitura intermediária",
+ o:"Olhar o número — e não decidir nada com ele.",
+ p:["Serve para checar se a coleta está saudável, não para avaliar resultado.",
+    "Mudança de conteúdo leva de 2 a 4 semanas para aparecer na citação.",
+    "Se o número caiu, não reverta nada ainda. Pode ser variação normal.",
+    "Anote o que chamou atenção para conferir no dia 90."]},
+{id:"T18",f:"governanca",crit:1,d0:76,d1:90,ir:"medir",
+ n:"Janela de 28 dias e relatório",
+ o:"A primeira leitura que decide alguma coisa.",
+ p:["Compare o baseline com a janela rolante de 28 dias — nunca semana contra semana.",
+    "Confira se a diferença sai da faixa de erro. Se não sair, o resultado é “não deu para afirmar”.",
+    "Compare os concorrentes: se todos subiram, quem subiu foi a plataforma.",
+    "Escreva também o que não deu certo. Relatório só com acerto é peça de venda."]}
+];
+
+const MARCOS = [
+ {d:21,cod:"M1",n:"Baseline válido",
+  c:"14 dias de coleta contínua, 7 repetições por pergunta por dia, em pelo menos 3 motores, com a resposta bruta guardada.",
+  se:"Não avance para conteúdo. Sem baseline você não vai conseguir provar nada no dia 90."},
+ {d:45,cod:"M2",n:"Fundação pronta",
+  c:"100% das páginas-alvo indexadas, zero URLs concorrentes para a mesma intenção, dados da empresa idênticos em todos os canais.",
+  se:"Adie a fase de conteúdo. Reparo sobre base quebrada não produz efeito mensurável."},
+ {d:70,cod:"M3",n:"Páginas reparadas",
+  c:"Toda página do diagnóstico com preço ou faixa, data real, especificação e evidência — e nenhuma afirmação sem fonte.",
+  se:"Registre o que ficou de fora. O relatório precisa dizer o que foi feito, não só o que mudou."},
+ {d:90,cod:"M4",n:"Relatório com faixa de erro",
+  c:"Baseline comparado à janela de 28 dias, com a faixa de erro declarada e os concorrentes medidos nas mesmas perguntas.",
+  se:"Se a diferença não sai da faixa, o resultado é “não deu para afirmar”. Isso é um resultado, não um fracasso."}
+];
+
+const INTENCOES = {
+  descoberta:{n:"Descoberta",d:"O cliente não sabe o seu nome. É aqui que a visibilidade real acontece."},
+  comparacao:{n:"Comparação",d:"O cliente já está escolhendo entre opções."},
+  problema:{n:"Problema",d:"O cliente descreve a dor, não o serviço."},
+  validacao:{n:"Validação",d:"O cliente já sabe o nome. Só mede fidelidade, nunca visibilidade."}
+};
+const MOTORES = ["ChatGPT","Google AI Mode","Perplexity","Gemini","Copilot"];
+
+const FALHAS = {
+  intencao:{n:"Intenção divergente",
+    s:"A pergunta pede indicação, preço ou agendamento — e a sua página explica o que é o serviço.",
+    r:"Remapear a página para responder na mesma moeda da pergunta."},
+  informacao:{n:"Lacuna de informação",
+    s:"A IA cita concorrentes que trazem um dado que você não tem na página.",
+    r:"Escrever o que está implícito: bairro, equipamento, público, forma de pagamento."},
+  data:{n:"Informação desatualizada",
+    s:"A IA descreve preço, horário ou serviço que você não pratica mais — ou a página não tem data.",
+    r:"Atualizar e datar de forma visível."},
+  local:{n:"Localização incompatível",
+    s:"Você aparece para a cidade errada, ou some quando a pergunta inclui o seu bairro.",
+    r:"Padronizar nome, endereço e telefone e escrever a região como o cliente fala."}
+};
+
+/* ═════════ ARMAZENAMENTO: db -> localStorage -> memória ═════════ */
+const LS = "metodo90.v1";
+const memoria = {};
+function lerLocal(k){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):null; }catch(e){ return memoria[k]||null; } }
+function gravarLocal(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){ memoria[k]=v; } }
+
+function novoCodigo(){
+  const abc="ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; let s="";
+  for(let i=0;i<6;i++) s+=abc[Math.floor(Math.random()*abc.length)];
+  return s;
+}
+function estadoVazio(ws){
+  return { ws, perfil:null, carteira:[], tarefas:{}, diag:{}, reparos:[], medicoes:{}, notas:{} };
+}
+
+/* ═════════ SINCRONIZAÇÃO ENTRE APARELHOS (opcional) ═════════
+   Hoje o app guarda tudo no navegador deste aparelho. Nada sai daqui.
+
+   Para sincronizar celular e desktop, ligue o adaptador de Supabase abaixo:
+
+   1) No SQL Editor do seu projeto Supabase, rode:
+
+      create table public.metodo90 (
+        ws         text primary key,
+        estado     jsonb       not null default '{}'::jsonb,
+        atualizado timestamptz not null default now()
+      );
+      alter table public.metodo90 enable row level security;
+      revoke all on public.metodo90 from anon, authenticated;
+
+      create or replace function public.metodo90_ler(p_ws text)
+      returns jsonb language sql security definer set search_path = public as $$
+        select estado from public.metodo90 where ws = p_ws;
+      $$;
+
+      create or replace function public.metodo90_gravar(p_ws text, p_estado jsonb)
+      returns void language sql security definer set search_path = public as $$
+        insert into public.metodo90 (ws, estado, atualizado)
+        values (p_ws, p_estado, now())
+        on conflict (ws) do update
+          set estado = excluded.estado, atualizado = now();
+      $$;
+
+      grant execute on function public.metodo90_ler(text)          to anon;
+      grant execute on function public.metodo90_gravar(text,jsonb) to anon;
+
+   2) Preencha as duas constantes abaixo com a URL e a chave publicável do projeto.
+   3) Troque a linha  let SINC = null;  por  let SINC = sincSupabase();
+
+   MODELO DE SEGURANÇA, sem enfeite: quem souber o código do espaço lê e escreve
+   aquele registro. É o mesmo nível de um link não listado. Não guarde nada sensível
+   aqui. Para uso multicliente de verdade, troque as funções por RLS sobre auth.uid()
+   com login por e-mail — aí cada pessoa só enxerga o próprio espaço.
+*/
+const SUPABASE_URL  = "";
+const SUPABASE_CHAVE = "";
+
+function sincSupabase(){
+  if(!SUPABASE_URL || !SUPABASE_CHAVE) return null;
+  const cab = { apikey:SUPABASE_CHAVE, Authorization:"Bearer "+SUPABASE_CHAVE, "Content-Type":"application/json" };
+  const rpc = (fn, corpo) => fetch(SUPABASE_URL.replace(/\/+$/,"") + "/rest/v1/rpc/" + fn,
+    { method:"POST", headers:cab, body:JSON.stringify(corpo) });
+  return {
+    nome: "Supabase",
+    async carregar(ws){
+      try{ const r = await rpc("metodo90_ler",{p_ws:ws}); if(!r.ok) return null; return await r.json(); }
+      catch(e){ return null; }
+    },
+    async gravar(ws, estado){
+      try{ await rpc("metodo90_gravar",{p_ws:ws, p_estado:estado}); }catch(e){}
+    }
+  };
+}
+
+let SINC = null;          // <- troque para sincSupabase() quando as funções existirem
+let sincAtivo = false;
+
+const ouvintes = new Set();
+let ESTADO = null;
+let gravaTimer = null;
+
+async function gravarRemoto(){
+  if(!SINC || !ESTADO) return;
+  await SINC.gravar(ESTADO.ws, ESTADO);
+}
+
+function avisar(){ ouvintes.forEach(f=>f(ESTADO)); }
+function comprometer(){
+  gravarLocal(LS, ESTADO);
+  avisar();
+  clearTimeout(gravaTimer);
+  gravaTimer = setTimeout(gravarRemoto, 900);
+}
+function mudar(fn){
+  const proximo = fn(ESTADO);
+  ESTADO = { ...ESTADO, ...proximo, atualizado: Date.now() };
+  comprometer();
+}
+
+function iniciarEstado(){
+  const salvo = lerLocal(LS);
+  ESTADO = salvo && salvo.ws ? { ...estadoVazio(salvo.ws), ...salvo } : estadoVazio(novoCodigo());
+  if(!salvo) gravarLocal(LS, ESTADO);
+  return ESTADO;
+}
+
+async function conectarSinc(){
+  if(!SINC) return false;
+  const remoto = await SINC.carregar(ESTADO.ws);
+  if(remoto && (remoto.atualizado||0) > (ESTADO.atualizado||0)){
+    ESTADO = { ...ESTADO, ...remoto };
+    gravarLocal(LS, ESTADO);
+  }
+  sincAtivo = true; avisar();
+  return true;
+}
+
+async function trocarWorkspace(codigo){
+  const cod = String(codigo||"").trim().toUpperCase();
+  if(!/^[A-Z0-9]{4,12}$/.test(cod)) return { ok:false, erro:"Código inválido. Use de 4 a 12 letras e números." };
+  const remoto = SINC ? await SINC.carregar(cod) : null;
+  ESTADO = remoto ? { ...estadoVazio(cod), ...remoto, ws:cod } : estadoVazio(cod);
+  gravarLocal(LS, ESTADO); avisar();
+  return { ok:true, temDados: !!ESTADO.perfil, remoto: !!remoto };
+}
+
+function importarEstado(bruto){
+  let obj;
+  try{ obj = JSON.parse(bruto); }catch(e){ return { ok:false, erro:"Arquivo não é um JSON válido." }; }
+  if(!obj || typeof obj !== "object" || !("carteira" in obj) || !("tarefas" in obj))
+    return { ok:false, erro:"Este arquivo não parece ser um backup do Método 90 Dias." };
+  ESTADO = { ...estadoVazio(obj.ws || ESTADO.ws), ...obj, atualizado: Date.now() };
+  comprometer();
+  return { ok:true };
+}
+
+/* ═════════ CALENDÁRIO ═════════ */
+const HOJE_ISO = () => dayjs().format("YYYY-MM-DD");
+
+function diaPrograma(estado, iso){
+  if(!estado.perfil?.inicio) return null;
+  const d = dayjs(iso).startOf("day").diff(dayjs(estado.perfil.inicio).startOf("day"), "day") + 1;
+  return d >= 1 && d <= 90 ? d : null;
+}
+function isoDoDia(estado, n){
+  if(!estado.perfil?.inicio) return null;
+  return dayjs(estado.perfil.inicio).add(n-1,"day").format("YYYY-MM-DD");
+}
+function temMedicao(estado, iso){ return (estado.medicoes?.[iso]||[]).length > 0; }
+
+function itensDoDia(estado, iso){
+  const dia = diaPrograma(estado, iso);
+  if(!dia) return { dia:null, itens:[], marco:null };
+  const itens = [];
+  TAREFAS.forEach(t=>{
+    if(dia < t.d0 || dia > t.d1) return;
+    itens.push({
+      chave:t.id, tipo:"tarefa", t,
+      estagio: dia===t.d0 ? "comeca" : (dia===t.d1 ? "entrega" : "segue"),
+      feito: !!estado.tarefas[t.id]
+    });
+  });
+  if(dia >= 8){
+    itens.push({ chave:"coleta@"+iso, tipo:"ritual", iso,
+      feito: temMedicao(estado, iso) || !!estado.tarefas["coleta@"+iso] });
+  }
+  (estado.reparos||[]).forEach(r=>{
+    if(r.dia !== dia) return;
+    itens.push({ chave:"R"+r.id, tipo:"reparo", r, feito: !!estado.tarefas["R"+r.id] });
+  });
+  const marco = MARCOS.find(m=>m.d===dia) || null;
+  return { dia, itens, marco };
+}
+
+function resumoDoDia(estado, iso){
+  const { dia, itens, marco } = itensDoDia(estado, iso);
+  if(!dia) return null;
+  const frentes = [...new Set(itens.filter(i=>!i.feito).map(i=> i.tipo==="ritual" ? "medicao" : (i.tipo==="reparo" ? "reparo" : i.t.f)))];
+  return { dia, total:itens.length, abertos:itens.filter(i=>!i.feito).length, frentes, marco:!!marco };
+}
+
+/* ═════════ ESTATÍSTICA ═════════ */
+function wilson(p, n){
+  if(!(n>0)) return [0,1];
+  const z=1.959964, d=1+z*z/n;
+  const c=(p+z*z/(2*n))/d;
+  const h=z*Math.sqrt(p*(1-p)/n + z*z/(4*n*n))/d;
+  return [Math.max(0,c-h), Math.min(1,c+h)];
+}
+function agregar(estado, deIso, ateIso, fatorAgrup){
+  const fa = fatorAgrup || 2;
+  let apar=0, rod=0, dom=0, comDom=0, dias=0;
+  Object.entries(estado.medicoes||{}).forEach(([d,regs])=>{
+    if(d < deIso || d > ateIso) return;
+    let houve=false;
+    regs.forEach(r=>{ apar+=r.a||0; rod+=r.r||0; if(r.dom) comDom++; dom++; houve=true; });
+    if(houve) dias++;
+  });
+  const p = rod ? apar/rod : 0;
+  const nEf = Math.max(1, rod/fa);
+  const [lo,hi] = wilson(p, nEf);
+  return { apar, rod, p, lo, hi, dias, presencaDominio: dom?comDom/dom:0 };
+}
+function janelaBaseline(estado){
+  const i = estado.perfil?.inicio; if(!i) return null;
+  return { de: dayjs(i).add(7,"day").format("YYYY-MM-DD"), ate: dayjs(i).add(20,"day").format("YYYY-MM-DD") };
+}
+function janelaAtual(estado, dias){
+  const fim = dayjs();
+  return { de: fim.subtract((dias||28)-1,"day").format("YYYY-MM-DD"), ate: fim.format("YYYY-MM-DD") };
+}
+function serieDiaria(estado){
+  return Object.entries(estado.medicoes||{}).sort((a,b)=>a[0]<b[0]?-1:1).map(([d,regs])=>{
+    const apar=regs.reduce((s,r)=>s+(r.a||0),0), rod=regs.reduce((s,r)=>s+(r.r||0),0);
+    return { d, p: rod?apar/rod:0, rod };
+  });
+}
+function fmtPct(x, casas){ return (x*100).toLocaleString("pt-BR",{minimumFractionDigits:casas||0,maximumFractionDigits:casas||0})+"%"; }
+
+/* ═════════ ÍCONES ═════════ */
+const CAMINHOS = {
+  check:"M4 10.5 8 14.5 16 5.5",
+  chevD:"m5 8 5 5 5-5", chevE:"m12 4-5 6 5 6", chevDir:"m7 4 5 6-5 6",
+  hoje:"M3 6h14M3 10h9M3 14h11", cal:"M4 5h12v12H4zM4 8h12M8 3v3M12 3v3",
+  graf:"M3 16V9M8 16V4M13 16v-5M17 16h-14", ramo:"M5 4v4a3 3 0 0 0 3 3h7M15 4l-2 2 2 2M5 16h10M15 14l2 2-2 2",
+  livro:"M4 4h5a2 2 0 0 1 2 2v10a2 2 0 0 0-2-2H4zM16 4h-5a2 2 0 0 0-2 2v10a2 2 0 0 1 2-2h5z",
+  eng:"M10 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM10 2v2M10 16v2M4.2 4.2l1.4 1.4M14.4 14.4l1.4 1.4M2 10h2M16 10h2M4.2 15.8l1.4-1.4M14.4 5.6l1.4-1.4",
+  mais:"M10 4v12M4 10h12", lixo:"M4 6h12M8 6V4h4v2M6 6l1 10h6l1-10",
+  faisca:"M10 2l1.6 4.4L16 8l-4.4 1.6L10 14l-1.6-4.4L4 8l4.4-1.6zM15 13l.8 2.2L18 16l-2.2.8L15 19l-.8-2.2L12 16l2.2-.8z",
+  baixar:"M10 3v9M6 9l4 4 4-4M4 16h12", alerta:"M10 3 2 17h16zM10 8v4M10 15h.01",
+  x:"m5 5 10 10M15 5 5 15", volta:"M8 4 3 9l5 5M3 9h9a5 5 0 0 1 0 10h-3",
+  pino:"M10 2a5 5 0 0 0-5 5c0 4 5 11 5 11s5-7 5-11a5 5 0 0 0-5-5zM10 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z",
+  info:"M10 3a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM10 9v5M10 6.5h.01"
+};
+function Ico({k, s}){
+  return html`<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width=${s||1.7}
+    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d=${CAMINHOS[k]}/></svg>`;
+}
+
+/* ═════════ PROGRESSO ═════════ */
+function progresso(estado){
+  const hoje = HOJE_ISO();
+  const dia = diaPrograma(estado, hoje) || 0;
+  const devidas = TAREFAS.filter(t=>t.d0 <= dia);
+  const feitas = devidas.filter(t=>estado.tarefas[t.id]).length;
+  const rep = (estado.reparos||[]).filter(r=>r.dia<=dia);
+  const repF = rep.filter(r=>estado.tarefas["R"+r.id]).length;
+  const tot = devidas.length + rep.length;
+  return { dia, feitas: feitas+repF, total: tot, pct: tot ? Math.round((feitas+repF)/tot*100) : 0 };
+}
+function faseDoDia(d){
+  if(d<=21) return "Fase 0 · Medir antes de mexer";
+  if(d<=45) return "Fase 1 · Fazer a IA conseguir ler você";
+  if(d<=70) return "Fase 2 · Fazer a IA escolher você";
+  if(d<=75) return "Fase 3 · Existir fora do site";
+  return "Fase 4 · Ler o resultado";
+}
+
+/* ═════════ ITEM DE TAREFA ═════════ */
+function ItemTarefa({item, estado, onAlternar, onAbrir}){
+  const t = item.tipo==="tarefa" ? item.t : null;
+  const frente = item.tipo==="ritual" ? "medicao" : item.tipo==="reparo" ? "reparo" : t.f;
+  const nome = item.tipo==="ritual" ? "Registrar a coleta de hoje"
+             : item.tipo==="reparo" ? ("Reparar: " + item.r.pergunta)
+             : t.n;
+  const desc = item.tipo==="ritual" ? "7 repetições por pergunta, em cada motor, em janela anônima."
+             : item.tipo==="reparo" ? (FALHAS[item.r.falha] ? FALHAS[item.r.falha].r : "")
+             : t.o;
+  return html`
+    <div className=${"tarefa" + (item.feito?" feita":"")}>
+      <button className="tk" onClick=${()=>onAlternar(item)}
+        aria-pressed=${item.feito} aria-label=${(item.feito?"Desmarcar: ":"Concluir: ")+nome}>
+        <${Ico} k="check" s=${2.6}/>
+      </button>
+      <div>
+        <button className="tarefa-n" style=${{textAlign:"left",width:"100%"}}
+          onClick=${()=>onAbrir(item)}>${nome}</button>
+        <p className="tarefa-d">${desc}</p>
+        <div className="tarefa-m">
+          <span className="chip"><i className=${"faixa-frente fr-"+frente} style=${{width:"3px",height:"11px",display:"inline-block"}}></i>${FRENTES[frente].n}</span>
+          ${item.tipo==="tarefa" && item.estagio==="comeca" && html`<span className="chip dt">começa hoje</span>`}
+          ${item.tipo==="tarefa" && item.estagio==="entrega" && html`<span className="chip at">entrega hoje</span>`}
+          ${item.tipo==="tarefa" && t.crit && html`<span className="chip cr">caminho crítico</span>`}
+          ${item.tipo==="ritual" && html`<span className="chip dt">todo dia</span>`}
+        </div>
+      </div>
+    </div>`;
+}
+
+/* ═════════ TELA: HOJE ═════════ */
+function TelaHoje({estado, acoes, irPara}){
+  const hoje = HOJE_ISO();
+  const { dia, itens, marco } = itensDoDia(estado, hoje);
+  const pr = progresso(estado);
+  if(!estado.perfil) return html`<${Boas} irPara=${irPara}/>`;
+  if(!dia){
+    const inicio = dayjs(estado.perfil.inicio);
+    const antes = dayjs().isBefore(inicio, "day");
+    return html`<div className="pilha">
+      <div className="cartao cartao-p vazio">
+        <${Ico} k="cal"/>
+        <h3>${antes ? "O programa ainda não começou" : "O programa de 90 dias terminou"}</h3>
+        <p className="sub">${antes
+          ? "Começa em " + inicio.format("D [de] MMMM") + ". Enquanto isso, monte a carteira de perguntas."
+          : "Terminou em " + inicio.add(89,"day").format("D [de] MMMM") + ". Você pode ler o resultado ou começar um novo ciclo."}</p>
+        <div style=${{marginTop:".9rem"}}>
+          <button className="bt" onClick=${()=>irPara(antes?"carteira":"medir")}>${antes?"Montar a carteira":"Ver a medição"}</button>
+        </div>
+      </div>
+    </div>`;
+  }
+  const proxMarco = MARCOS.find(m=>m.d>=dia);
+  return html`
+    <div className="pilha">
+      <div className="hoje-cab">
+        <div style=${{flex:1,minWidth:0}}>
+          <p className="dia-n">DIA ${dia} DE 90 · ${dayjs(hoje).format("dddd, D [de] MMMM")}</p>
+          <h1 className="h-tela" style=${{marginTop:".15rem"}}>${itens.filter(i=>!i.feito).length ? "O que fazer hoje" : "Dia concluído"}</h1>
+          <p className="sub" style=${{marginTop:".25rem"}}>${faseDoDia(dia)}</p>
+        </div>
+        <div className="anel" style=${{"--p":pr.pct}} role="img"
+          aria-label=${"Progresso do programa: " + pr.pct + " por cento"}>
+          <i>${pr.pct}%</i>
+        </div>
+      </div>
+
+      ${marco && html`<div className="marco-c">
+        <p className="et">${marco.cod} · Marco de hoje</p>
+        <h3>${marco.n}</h3>
+        <p>${marco.c}</p>
+      </div>`}
+
+      <div className="cartao">
+        ${itens.length ? itens.map(i=>html`<${ItemTarefa} key=${i.chave} item=${i} estado=${estado}
+            onAlternar=${acoes.alternar} onAbrir=${acoes.abrirItem}/>`)
+          : html`<div className="vazio"><${Ico} k="check"/><h3>Nada previsto para hoje</h3>
+              <p className="sub">Aproveite para adiantar a coleta ou revisar a carteira.</p></div>`}
+      </div>
+
+      ${proxMarco && html`<div className="cartao cartao-p">
+        <p className="sec-t">Próximo marco</p>
+        <div className="linha" style=${{alignItems:"flex-start",gap:".7rem"}}>
+          <span className="chip dt num">${proxMarco.cod}</span>
+          <div style=${{flex:1}}>
+            <p style=${{fontWeight:700,fontSize:".95rem"}}>${proxMarco.n}</p>
+            <p className="mini" style=${{marginTop:".2rem"}}>
+              ${proxMarco.d===dia ? "É hoje." : "Em " + (proxMarco.d-dia) + (proxMarco.d-dia===1?" dia":" dias") + " — dia " + proxMarco.d}
+            </p>
+          </div>
+        </div>
+      </div>`}
+    </div>`;
+}
+
+/* ═════════ TELA: CALENDÁRIO ═════════ */
+const DOW = ["dom","seg","ter","qua","qui","sex","sáb"];
+function TelaCalendario({estado, acoes, irPara}){
+  const [mes, setMes] = useState(()=>{
+    const h = dayjs(); const ini = estado.perfil ? dayjs(estado.perfil.inicio) : h;
+    return (h.isBefore(ini,"month") ? ini : h).startOf("month");
+  });
+  const dias = useMemo(()=>{
+    const ini = mes.startOf("month"), fim = mes.endOf("month");
+    const arr = []; let cur = ini.subtract(ini.day(),"day");
+    const ultimo = fim.add(6-fim.day(),"day");
+    while(cur.isBefore(ultimo) || cur.isSame(ultimo,"day")){ arr.push(cur); cur = cur.add(1,"day"); }
+    return arr;
+  },[mes.valueOf()]);
+  const hoje = HOJE_ISO();
+  if(!estado.perfil) return html`<${Boas} irPara=${irPara}/>`;
+  return html`
+    <div className="pilha">
+      <div>
+        <h1 className="h-tela">Calendário</h1>
+        <p className="sub" style=${{marginTop:".2rem"}}>Toque num dia para ver exatamente o que fazer nele.</p>
+      </div>
+      <div className="cartao cartao-p">
+        <div className="cal-nav">
+          <button className="icb" onClick=${()=>setMes(mes.subtract(1,"month"))} aria-label="Mês anterior"><${Ico} k="chevE"/></button>
+          <span className="cal-mes">${mes.format("MMMM [de] YYYY")}</span>
+          <button className="icb" onClick=${()=>setMes(mes.add(1,"month"))} aria-label="Próximo mês"><${Ico} k="chevDir"/></button>
+        </div>
+        <div className="cal-grade" role="grid">
+          ${DOW.map(d=>html`<div key=${d} className="cal-dow">${d}</div>`)}
+          ${dias.map(d=>{
+            const iso = d.format("YYYY-MM-DD");
+            const r = resumoDoDia(estado, iso);
+            const noMes = d.month()===mes.month();
+            const cls = "cal-d " + (r ? "dentro " : "fora ") + (iso===hoje ? "hoje " : "") + (noMes?"":"fora");
+            return html`<button key=${iso} className=${cls} onClick=${()=>acoes.abrirDia(iso)}
+              aria-label=${d.format("D [de] MMMM") + (r ? ", " + r.abertos + " itens em aberto" : ", fora do programa")}>
+              ${r && r.marco && html`<span className="cal-marco"></span>`}
+              <span className="cal-n">${d.date()}</span>
+              <span className="cal-pts">${(r?r.frentes:[]).slice(0,4).map(f=>html`<i key=${f} className=${"fr-"+f}></i>`)}</span>
+            </button>`;
+          })}
+        </div>
+        <div className="cal-leg">
+          ${Object.entries(FRENTES).map(([k,v])=>html`<span key=${k}><i className=${"fr-"+k}></i>${v.n}</span>`)}
+          <span><span className="cal-marco" style=${{position:"static",display:"inline-block"}}></span> Marco</span>
+        </div>
+      </div>
+      <div className="aviso dt">
+        <${Ico} k="info"/>
+        <div>Os pontos coloridos mostram as <b>frentes com item em aberto</b> naquele dia. Conforme você registra medições e roda o diagnóstico, o calendário ganha as suas tarefas de reparo.</div>
+      </div>
+    </div>`;
+}
+
+/* ═════════ FOLHA DO DIA ═════════ */
+function FolhaDia({iso, estado, acoes, fechar}){
+  const { dia, itens, marco } = itensDoDia(estado, iso);
+  const d = dayjs(iso);
+  return html`
+    <div>
+      <div className="folha-fundo" onClick=${fechar}></div>
+      <div className="folha" role="dialog" aria-modal="true" aria-label=${"Dia " + d.format("D [de] MMMM")}>
+        <div className="folha-p"></div>
+        <div className="folha-cab">
+          <div style=${{flex:1,minWidth:0}}>
+            <p className="mini" style=${{textTransform:"capitalize"}}>${d.format("dddd, D [de] MMMM")}</p>
+            <h2 className="h-sec">${dia ? "Dia " + dia + " de 90" : "Fora do programa"}</h2>
+          </div>
+          <button className="icb" onClick=${fechar} aria-label="Fechar"><${Ico} k="x"/></button>
+        </div>
+        <div className="folha-corpo pilha">
+          ${marco && html`<div className="marco-c">
+            <p className="et">${marco.cod} · Marco</p><h3>${marco.n}</h3><p>${marco.c}</p>
+            <p style=${{marginTop:".55rem",color:"#8FB8A2",fontSize:".8rem"}}><b style=${{color:"#fff"}}>Se não cumprir:</b> ${marco.se}</p>
+          </div>`}
+          ${!dia && html`<div className="vazio"><${Ico} k="cal"/><h3>Nada aqui</h3>
+            <p className="sub">Este dia está fora da janela de 90 dias do programa.</p></div>`}
+          ${dia && (itens.length
+            ? html`<div className="cartao">${itens.map(i=>html`<${ItemTarefa} key=${i.chave} item=${i}
+                estado=${estado} onAlternar=${acoes.alternar} onAbrir=${acoes.abrirItem}/>`)}</div>`
+            : html`<div className="vazio"><${Ico} k="check"/><h3>Dia livre</h3>
+                <p className="sub">Nenhuma tarefa do método cai neste dia.</p></div>`)}
+          ${dia && dia>=8 && html`<div className=${"aviso" + (temMedicao(estado,iso)?" dt":"")}>
+            <${Ico} k=${temMedicao(estado,iso)?"check":"alerta"}/>
+            <div>${temMedicao(estado,iso)
+              ? html`Coleta registrada: <b>${(estado.medicoes[iso]||[]).reduce((s,r)=>s+(r.r||0),0)} rodadas</b> neste dia.`
+              : "Sem coleta registrada neste dia. Rodada não registrada é rodada perdida — a série histórica não se recupera."}</div>
+          </div>`}
+        </div>
+      </div>
+    </div>`;
+}
+
+/* ═════════ BOAS-VINDAS / SETUP ═════════ */
+function Boas({irPara}){
+  return html`<div className="pilha">
+    <div className="cartao cartao-p">
+      <p className="sec-t">Método de 90 dias</p>
+      <h1 className="h-tela">Fazer a IA indicar o seu negócio</h1>
+      <p className="sub" style=${{marginTop:".5rem"}}>
+        Um programa guiado, dia a dia: você mede antes de mexer, descobre por que não é citado,
+        corrige o que a evidência sustenta e, no dia 90, sabe se mudou alguma coisa — com faixa de erro,
+        não com achismo.</p>
+      <div style=${{marginTop:"1rem"}}>
+        <button className="bt larg" onClick=${()=>irPara("ajustes")}>Começar — leva 3 minutos<${Ico} k="chevDir"/></button>
+      </div>
+    </div>
+    <div className="cartao cartao-p">
+      <p className="sec-t">O que você vai fazer</p>
+      <ol style=${{margin:0,paddingLeft:"1.1rem",fontSize:".9rem",lineHeight:1.6,color:"var(--tinta-2)"}}>
+        <li><b style=${{color:"var(--tinta)"}}>Dias 1 a 21 —</b> montar 20 a 30 perguntas e medir 14 dias sem tocar no site.</li>
+        <li><b style=${{color:"var(--tinta)"}}>Dias 15 a 45 —</b> corrigir o que impede a IA de ler você.</li>
+        <li><b style=${{color:"var(--tinta)"}}>Dias 30 a 70 —</b> reparar cada página conforme a falha diagnosticada.</li>
+        <li><b style=${{color:"var(--tinta)"}}>Dias 45 a 90 —</b> existir fora do site e ler o resultado.</li>
+      </ol>
+    </div>
+    <div className="aviso">
+      <${Ico} k="alerta"/>
+      <div><b>A regra que muda tudo:</b> nenhuma leitura que decide alguma coisa antes do dia 76.
+      Antes disso o número existe, mas não distingue efeito de ruído.</div>
+    </div>
+  </div>`;
+}
+
+/* ═════════ TELA: CARTEIRA ═════════ */
+function TelaCarteira({estado, acoes, avisar}){
+  const [texto,setTexto] = useState("");
+  const [intencao,setIntencao] = useState("descoberta");
+  const [gerando,setGerando] = useState(false);
+  const [sugestoes,setSugestoes] = useState([]);
+  const [temSample,setTemSample] = useState(false);
+  useEffect(()=>{ window.claude?.use?.("sample").then(s=>setTemSample(!!s)); },[]);
+  const carteira = estado.carteira||[];
+  const contagem = {};
+  Object.keys(INTENCOES).forEach(k=>contagem[k]=carteira.filter(q=>q.intencao===k).length);
+  const validPct = carteira.length ? Math.round(contagem.validacao/carteira.length*100) : 0;
+
+  function adicionar(t,i){
+    const txt=(t||"").trim(); if(!txt) return;
+    acoes.mudar(e=>({ carteira:[...e.carteira,{id:"q"+Date.now()+Math.floor(Math.random()*999),texto:txt,intencao:i}] }));
+  }
+  async function sugerir(){
+    const p = estado.perfil; if(!p) return;
+    setGerando(true); setSugestoes([]);
+    try{
+      const sample = await window.claude.use("sample");
+      const r = await sample.json(
+        "Você ajuda a montar uma carteira de perguntas para medir visibilidade em IA de um negócio.\n" +
+        "Negócio: " + p.negocio + "\nCategoria: " + p.categoria + "\nCidade/região: " + p.cidade + "\n\n" +
+        "Gere 12 perguntas em português do Brasil, escritas como um CLIENTE REAL escreveria ao pedir indicação " +
+        "para um assistente de IA. Não use o nome do negócio nas intenções descoberta, comparacao e problema. " +
+        "Distribua assim: 5 descoberta, 3 comparacao, 3 problema, 1 validacao.\n" +
+        "Responda APENAS com JSON no formato {\"perguntas\":[{\"texto\":\"...\",\"intencao\":\"descoberta|comparacao|problema|validacao\"}]}",
+        { modelTier:"default" }
+      );
+      setSugestoes((r?.perguntas||[]).filter(x=>x&&x.texto));
+    }catch(e){ avisar("Não consegui gerar sugestões agora."); }
+    setGerando(false);
+  }
+
+  return html`<div className="pilha">
+    <div>
+      <h1 className="h-tela">Carteira de perguntas</h1>
+      <p className="sub" style=${{marginTop:".2rem"}}>
+        As perguntas que você vai medir todo dia pelos 90 dias. Meta: de 20 a 30, congeladas antes de começar.</p>
+    </div>
+
+    <div className="cartao">
+      <div className="kpi">
+        <div><b className="num">${carteira.length}</b><span>perguntas ${carteira.length<20?"— faltam "+(20-carteira.length):"✓"}</span></div>
+        <div><b className="num">${contagem.descoberta}</b><span>descoberta</span></div>
+        <div><b className="num">${contagem.comparacao + contagem.problema}</b><span>comparação e problema</span></div>
+        <div><b className="num" style=${{color: validPct>25?"var(--brasa-t)":"var(--tinta)"}}>${validPct}%</b><span>validação ${validPct>25?"— alto demais":""}</span></div>
+      </div>
+    </div>
+
+    ${validPct>25 && carteira.length>3 && html`<div className="aviso"><${Ico} k="alerta"/>
+      <div>Mais de um quarto da carteira é <b>validação</b> — perguntas com o nome do seu negócio.
+      Elas quase sempre dão positivo e inflam o resultado. Elas medem fidelidade, não visibilidade.</div></div>`}
+
+    <div className="cartao cartao-p pilha-s">
+      <p className="sec-t">Adicionar pergunta</p>
+      <label className="campo">
+        <span>Escreva como o cliente falaria</span>
+        <textarea value=${texto} onChange=${e=>setTexto(e.target.value)}
+          placeholder=${estado.perfil ? "Ex.: qual " + (estado.perfil.categoria||"empresa").toLowerCase() + " você indica em " + (estado.perfil.cidade||"minha cidade") + "?" : "Ex.: qual clínica de estética você indica em Sorocaba?"}></textarea>
+      </label>
+      <label className="campo">
+        <span>Intenção</span>
+        <select value=${intencao} onChange=${e=>setIntencao(e.target.value)}>
+          ${Object.entries(INTENCOES).map(([k,v])=>html`<option key=${k} value=${k}>${v.n} — ${v.d}</option>`)}
+        </select>
+      </label>
+      <div className="linha" style=${{gap:".5rem",flexWrap:"wrap"}}>
+        <button className="bt" onClick=${()=>{adicionar(texto,intencao); setTexto("");}} disabled=${!texto.trim()}>
+          <${Ico} k="mais"/>Adicionar</button>
+        ${temSample && estado.perfil && html`<button className="bt sec" onClick=${sugerir} disabled=${gerando}>
+          <${Ico} k="faisca"/>${gerando?"Gerando…":"Sugerir com IA"}</button>`}
+      </div>
+    </div>
+
+    ${sugestoes.length>0 && html`<div className="cartao">
+      <div className="cartao-p" style=${{paddingBottom:".4rem"}}>
+        <p className="sec-t" style=${{marginBottom:".15rem"}}>Sugestões</p>
+        <p className="mini">Revise antes de aceitar — só você sabe como o seu cliente fala.</p>
+      </div>
+      ${sugestoes.map((s,i)=>html`<div key=${i} className="mq">
+        <div className="mq-t">${s.texto}<small>${INTENCOES[s.intencao]?INTENCOES[s.intencao].n:"Descoberta"}</small></div>
+        <button className="bt sec" style=${{minHeight:"38px",padding:".3rem .7rem"}}
+          onClick=${()=>{adicionar(s.texto, INTENCOES[s.intencao]?s.intencao:"descoberta"); setSugestoes(sugestoes.filter((_,j)=>j!==i));}}>Usar</button>
+      </div>`)}
+    </div>`}
+
+    ${carteira.length>0 ? html`<div className="cartao">
+      ${carteira.map(q=>html`<div key=${q.id} className="mq">
+        <div className="mq-t">${q.texto}<small>${INTENCOES[q.intencao]?INTENCOES[q.intencao].n:q.intencao}</small></div>
+        <button className="icb" aria-label="Remover pergunta"
+          onClick=${()=>acoes.mudar(e=>({carteira:e.carteira.filter(x=>x.id!==q.id)}))}><${Ico} k="lixo"/></button>
+      </div>`)}
+    </div>` : html`<div className="cartao vazio"><${Ico} k="pino"/>
+      <h3>Carteira vazia</h3><p className="sub">Comece pelas perguntas de descoberta — são as que medem visibilidade de verdade.</p></div>`}
+  </div>`;
+}
+
+/* ═════════ TELA: MEDIR ═════════ */
+function TelaMedir({estado, acoes, avisar, irPara}){
+  const [data,setData] = useState(HOJE_ISO());
+  const [motor,setMotor] = useState(MOTORES[0]);
+  const [buf,setBuf] = useState({});
+  const carteira = estado.carteira||[];
+  const jaSalvo = (estado.medicoes[data]||[]).filter(r=>r.m===motor);
+  useEffect(()=>{
+    const m={}; jaSalvo.forEach(r=>{ m[r.p]={a:r.a,dom:!!r.dom}; });
+    setBuf(m);
+  },[data,motor,estado.medicoes[data]?.length]);
+
+  function salvar(){
+    const regs = Object.entries(buf).filter(([,v])=>v && (v.a>0||v.marcado||v.dom))
+      .map(([p,v])=>({p, m:motor, a:v.a||0, r:7, dom:!!v.dom}));
+    if(!regs.length){ avisar("Marque pelo menos uma pergunta."); return; }
+    acoes.mudar(e=>{
+      const outros=(e.medicoes[data]||[]).filter(r=>r.m!==motor);
+      return { medicoes:{...e.medicoes, [data]:[...outros,...regs]} };
+    });
+    avisar("Coleta de " + motor + " salva.");
+  }
+  function passo(p, delta){
+    setBuf(b=>{ const v=b[p]||{a:0}; const a=Math.max(0,Math.min(7,(v.a||0)+delta)); return {...b,[p]:{...v,a,marcado:true}}; });
+  }
+
+  if(!estado.perfil) return html`<${Boas} irPara=${irPara}/>`;
+
+  const base = janelaBaseline(estado);
+  const agB = base ? agregar(estado, base.de, base.ate) : null;
+  const j28 = janelaAtual(estado, 28);
+  const agA = agregar(estado, j28.de, j28.ate);
+  const serie = serieDiaria(estado);
+  const nDias = serie.length;
+
+  return html`<div className="pilha">
+    <div>
+      <h1 className="h-tela">Medição</h1>
+      <p className="sub" style=${{marginTop:".2rem"}}>Sete repetições por pergunta, por motor, em janela anônima. Sempre.</p>
+    </div>
+
+    <div className="cartao">
+      <div className="kpi">
+        <div><b className="num">${nDias}</b><span>dias com coleta</span></div>
+        <div><b className="num">${agA.rod}</b><span>rodadas nos últimos 28 dias</span></div>
+        <div><b className="num">${agA.rod?fmtPct(agA.p,1):"—"}</b><span>taxa de detecção 28d</span></div>
+        <div><b className="num" style=${{fontSize:"1rem"}}>${agA.rod?fmtPct(agA.lo,0)+"–"+fmtPct(agA.hi,0):"—"}</b><span>faixa de erro 95%</span></div>
+      </div>
+    </div>
+
+    ${serie.length>1 && html`<${GrafSerie} serie=${serie} base=${agB} atual=${agA}/>`}
+
+    ${agB && agB.rod>0 && agA.rod>0 && html`<div className=${"aviso" + (agA.lo>agB.hi||agA.hi<agB.lo ? " dt":"")}>
+      <${Ico} k=${agA.lo>agB.hi||agA.hi<agB.lo ? "check":"alerta"}/>
+      <div>${agA.lo>agB.hi
+        ? html`A janela atual (<b>${fmtPct(agA.p,1)}</b>) está <b>acima</b> da faixa do baseline (${fmtPct(agB.lo,0)}–${fmtPct(agB.hi,0)}). A diferença sai da margem de erro.`
+        : agA.hi<agB.lo
+        ? html`A janela atual (<b>${fmtPct(agA.p,1)}</b>) está <b>abaixo</b> da faixa do baseline. Investigue antes de mudar o plano.`
+        : html`As faixas do baseline e da janela atual <b>se sobrepõem</b>. Ainda não dá para afirmar que mudou alguma coisa — e isso é um resultado legítimo.`}</div>
+    </div>`}
+
+    <div className="cartao">
+      <div className="cartao-p pilha-s" style=${{borderBottom:"1px solid var(--linha)"}}>
+        <p className="sec-t" style=${{margin:0}}>Registrar coleta</p>
+        <div className="grade2">
+          <label className="campo"><span>Data</span>
+            <input type="date" value=${data} onChange=${e=>setData(e.target.value)}/></label>
+          <label className="campo"><span>Motor</span>
+            <select value=${motor} onChange=${e=>setMotor(e.target.value)}>
+              ${MOTORES.map(m=>html`<option key=${m} value=${m}>${m}</option>`)}</select></label>
+        </div>
+        <p className="mini">Para cada pergunta: em quantas das 7 rodadas a sua marca apareceu.
+          Marque também se o seu site entrou na lista de fontes citadas.</p>
+      </div>
+      ${carteira.length ? html`<div>
+        ${carteira.map(q=>{
+          const v = buf[q.id]||{a:0};
+          return html`<div key=${q.id} className="mq">
+            <div className="mq-t">${q.texto}
+              <small>
+                <label style=${{display:"inline-flex",gap:".3rem",alignItems:"center",cursor:"pointer",marginTop:".25rem"}}>
+                  <input type="checkbox" checked=${!!v.dom}
+                    onChange=${e=>setBuf(b=>({...b,[q.id]:{...(b[q.id]||{a:0}),dom:e.target.checked,marcado:true}}))}/>
+                  meu site foi citado como fonte</label>
+              </small></div>
+            <div className="step">
+              <button onClick=${()=>passo(q.id,-1)} aria-label="Menos uma">−</button>
+              <b className="num">${v.a||0}/7</b>
+              <button onClick=${()=>passo(q.id,1)} aria-label="Mais uma">+</button>
+            </div>
+          </div>`;
+        })}
+        <div className="cartao-p" style=${{borderTop:"1px solid var(--linha)"}}>
+          <button className="bt larg" onClick=${salvar}>Salvar coleta de ${motor}</button>
+          ${jaSalvo.length>0 && html`<p className="mini" style=${{marginTop:".5rem",textAlign:"center"}}>
+            Já existem ${jaSalvo.length} registros deste motor nesta data. Salvar substitui.</p>`}
+        </div>
+      </div>` : html`<div className="vazio"><${Ico} k="pino"/><h3>Sem perguntas ainda</h3>
+        <p className="sub">Monte a carteira antes de medir.</p>
+        <div style=${{marginTop:".8rem"}}><button className="bt" onClick=${()=>irPara("carteira")}>Ir para a carteira</button></div></div>`}
+    </div>
+  </div>`;
+}
+
+function GrafSerie({serie, base, atual}){
+  const W=620,H=200,ml=38,mr=14,mt=14,mb=30;
+  const n=serie.length;
+  const x=i=> n<2 ? ml : ml + i/(n-1)*(W-ml-mr);
+  const y=p=> mt + (1-p)*(H-mt-mb);
+  const pts = serie.map((s,i)=>x(i).toFixed(1)+","+y(s.p).toFixed(1)).join(" ");
+  const yB = base && base.rod ? y(base.p) : null;
+  return html`<figure className="cartao" style=${{margin:0}}>
+    <div className="cartao-p" style=${{paddingBottom:".2rem"}}>
+      <h3 className="h-sec" style=${{fontSize:".98rem"}}>Taxa de detecção por dia</h3>
+      <p className="mini" style=${{marginTop:".15rem"}}>Em quantas das rodadas do dia a sua marca apareceu.</p>
+    </div>
+    <div className="cartao-p" style=${{paddingTop:".5rem"}}>
+      <svg className="graf" viewBox=${"0 0 "+W+" "+H} role="img"
+        aria-label=${"Série diária da taxa de detecção, " + n + " dias registrados."}>
+        ${[0,.25,.5,.75,1].map(t=>html`<g key=${t}>
+          <line x1=${ml} y1=${y(t)} x2=${W-mr} y2=${y(t)} stroke="var(--linha-2)" strokeWidth="1"/>
+          <text x=${ml-7} y=${y(t)+4} textAnchor="end" fontFamily="DM Mono, monospace" fontSize="11" fill="var(--tinta-3)">${Math.round(t*100)}%</text>
+        </g>`)}
+        ${yB!==null && html`<g>
+          <line x1=${ml} y1=${yB} x2=${W-mr} y2=${yB} stroke="var(--mar)" strokeWidth="1.5" strokeDasharray="5 4"/>
+          <text x=${W-mr} y=${yB-6} textAnchor="end" fontFamily="Bricolage Grotesque, sans-serif" fontSize="11" fill="var(--mar-t)">baseline ${fmtPct(base.p,0)}</text>
+        </g>`}
+        ${atual && atual.rod>0 && html`<rect x=${ml} y=${y(atual.hi)} width=${W-ml-mr} height=${Math.max(1,y(atual.lo)-y(atual.hi))}
+          fill="var(--folha)" opacity=".12"/>`}
+        <polyline points=${pts} fill="none" stroke="var(--folha)" strokeWidth="2.2" strokeLinejoin="round" strokeLinecap="round"/>
+        ${serie.map((s,i)=>html`<circle key=${s.d} cx=${x(i)} cy=${y(s.p)} r=${i===n-1?4.5:2.6} fill="var(--folha)"/>`)}
+        <text x=${ml} y=${H-9} fontFamily="Bricolage Grotesque, sans-serif" fontSize="11" fill="var(--tinta-3)">${dayjs(serie[0].d).format("D/MM")}</text>
+        <text x=${W-mr} y=${H-9} textAnchor="end" fontFamily="Bricolage Grotesque, sans-serif" fontSize="11" fill="var(--tinta-3)">${dayjs(serie[n-1].d).format("D/MM")}</text>
+      </svg>
+      <p className="mini" style=${{marginTop:".4rem"}}>A faixa verde clara é o intervalo de confiança de 95% da janela de 28 dias.
+        Ponto isolado fora dela não é resultado — é variação normal do canal.</p>
+    </div>
+  </figure>`;
+}
+
+/* ═════════ ASSISTENTE DE DIAGNÓSTICO ═════════ */
+const RAMOS = {
+  A:{cor:"a", t:"Problema de qualidade",
+     r:"Você já passou pelas duas etapas difíceis: a IA encontra o seu site e o considera candidato. Falta ser escolhido com mais frequência entre os candidatos.",
+     onde:"Nos quatro porteiros, na página que já é citada: preço explícito, data real e visível, especificações e comparação com alternativas.",
+     nao:"Não mexa na estrutura técnica do site. Você já provou que ela funciona — mudança grande aqui pode derrubar o que está de pé.",
+     primeiro:"Abra a página que aparece nas citações e responda as quatro perguntas do porteiro. Corrija a primeira que der não.",
+     custo:"Dias. Cabe no time atual."},
+  B:{cor:"b", t:"Problema de página",
+     r:"A IA leu o seu site e mesmo assim não indicou o seu negócio. O gargalo está no conteúdo daquela página específica, não no site inteiro. É o caso mais comum: 43% das páginas relevantes não recebem citação nenhuma.",
+     onde:"Classifique o tipo de falha antes de escrever qualquer coisa. Em 62% dos casos o problema é desalinhamento com a pergunta, não falta de texto.",
+     nao:"Não escreva “mais conteúdo”. Página maior não é página melhor — num estudo, encurtar em 53% manteve desempenho competitivo.",
+     primeiro:"Leia a pergunta do cliente e o título da sua página lado a lado. Se um pede indicação e o outro explica a categoria, você achou a falha.",
+     custo:"Semanas. Exige redação com método."},
+  C:{cor:"c", t:"Problema de recuperação",
+     r:"A IA nem chegou a ler o seu site. Nada do que você escrever nele terá efeito enquanto isso não mudar.",
+     onde:"É trabalho técnico de busca: indexação, robots.txt, renderização, canônicas duplicadas, velocidade, e consistência de nome, endereço e telefone entre todos os canais.",
+     nao:"Não contrate redação. Não assine ferramenta de monitoramento cara ainda — ela vai passar meses mostrando zero e você já sabe o porquê.",
+     primeiro:"Busque no Google por site:seudominio.com.br e confira se as páginas-alvo aparecem. Se não aparecem na busca comum, não existem para a IA.",
+     custo:"Meses. Exige desenvolvedor."}
+};
+
+function TelaDiag({estado, acoes, avisar, irPara}){
+  const [pid,setPid] = useState(null);
+  const [passo,setPasso] = useState(0);
+  const [resp,setResp] = useState({});
+  const carteira = estado.carteira||[];
+  const salvos = Object.entries(estado.diag||{});
+
+  function reiniciar(){ setPid(null); setPasso(0); setResp({}); }
+  function responder(chave, valor, proximo){
+    const r = {...resp,[chave]:valor}; setResp(r);
+    if(proximo===null){ setPasso(99); } else setPasso(proximo);
+  }
+  const ramo = resp.apareceu==="varias" || resp.apareceu==="poucas" ? "A"
+             : resp.fonte==="sim" ? "B" : resp.fonte==="nao" ? "C" : null;
+
+  function salvar(){
+    const q = carteira.find(x=>x.id===pid);
+    acoes.mudar(e=>({ diag:{...e.diag,[pid]:{ramo, falha:resp.falha||null, em:HOJE_ISO(), pergunta:q?q.texto:""}} }));
+    avisar("Diagnóstico salvo.");
+  }
+  function criarReparo(){
+    const q = carteira.find(x=>x.id===pid);
+    const dia = Math.max(30, Math.min(60, (diaPrograma(estado,HOJE_ISO())||30) + 5));
+    acoes.mudar(e=>({
+      diag:{...e.diag,[pid]:{ramo, falha:resp.falha||null, em:HOJE_ISO(), pergunta:q?q.texto:""}},
+      reparos:[...(e.reparos||[]).filter(r=>r.pid!==pid),
+        {id:"rep"+Date.now(), pid, pergunta:q?q.texto:"", falha:resp.falha||"intencao", dia}]
+    }));
+    avisar("Tarefa de reparo criada para o dia " + dia + ".");
+  }
+
+  if(!estado.perfil) return html`<${Boas} irPara=${irPara}/>`;
+
+  /* ---- lista inicial ---- */
+  if(!pid){
+    return html`<div className="pilha">
+      <div>
+        <h1 className="h-tela">Diagnóstico</h1>
+        <p className="sub" style=${{marginTop:".2rem"}}>
+          Duas empresas podem estar igualmente invisíveis por motivos opostos. Antes de escrever qualquer coisa,
+          descubra qual dos três problemas é o seu — pergunta por pergunta.</p>
+      </div>
+      ${carteira.length===0
+        ? html`<div className="cartao vazio"><${Ico} k="ramo"/><h3>Monte a carteira primeiro</h3>
+            <p className="sub">O diagnóstico é feito pergunta por pergunta, sobre o que você mediu.</p>
+            <div style=${{marginTop:".8rem"}}><button className="bt" onClick=${()=>irPara("carteira")}>Ir para a carteira</button></div></div>`
+        : html`<div className="cartao">
+            <div className="cartao-p" style=${{borderBottom:"1px solid var(--linha)"}}>
+              <p className="sec-t" style=${{margin:0}}>Escolha a pergunta para diagnosticar</p></div>
+            ${carteira.map(q=>{
+              const d = (estado.diag||{})[q.id];
+              return html`<button key=${q.id} className="mq" style=${{width:"100%",textAlign:"left"}} onClick=${()=>{setPid(q.id);setPasso(0);setResp({});}}>
+                <div className="mq-t">${q.texto}
+                  <small>${d ? "Diagnosticada: Ramo " + d.ramo + (d.falha?" · "+FALHAS[d.falha].n:"") : "Ainda não diagnosticada"}</small></div>
+                ${d ? html`<span className=${"chip " + (d.ramo==="A"?"ok":d.ramo==="B"?"at":"cr")}>Ramo ${d.ramo}</span>` : html`<${Ico} k="chevDir"/>`}
+              </button>`;
+            })}
+          </div>`}
+      ${salvos.length>0 && html`<div className="cartao cartao-p">
+        <p className="sec-t">Resumo do diagnóstico</p>
+        <div className="linha" style=${{gap:".4rem",flexWrap:"wrap"}}>
+          ${["A","B","C"].map(r=>{
+            const n = salvos.filter(([,d])=>d.ramo===r).length;
+            return html`<span key=${r} className=${"chip " + (r==="A"?"ok":r==="B"?"at":"cr")}>Ramo ${r}: ${n}</span>`;
+          })}
+        </div>
+        <p className="mini" style=${{marginTop:".55rem"}}>
+          ${salvos.filter(([,d])=>d.ramo==="C").length > salvos.length/2
+            ? "A maioria caiu no Ramo C. Pare o conteúdo e trate só o técnico — reescrever página que a IA não lê não produz efeito."
+            : "Cada ramo tem custo e prazo diferentes. Um fornecedor que aplica a mesma receita nos três não está diagnosticando."}</p>
+      </div>`}
+    </div>`;
+  }
+
+  const pergunta = carteira.find(x=>x.id===pid);
+  const totalPassos = 3;
+  const idxPasso = passo===99 ? totalPassos : passo;
+
+  /* ---- resultado ---- */
+  if(passo===99 && ramo){
+    const R = RAMOS[ramo];
+    const f = resp.falha ? FALHAS[resp.falha] : null;
+    return html`<div className="pilha">
+      <button className="bt fant" onClick=${reiniciar}><${Ico} k="volta"/>Voltar à lista</button>
+      <div className="res">
+        <div className=${"res-cab " + R.cor}>
+          <p className="et">Ramo ${ramo}</p>
+          <h3>${R.t}</h3>
+          <p style=${{fontSize:".84rem",marginTop:".35rem",opacity:.9}}>${R.custo}</p>
+        </div>
+        <div className="res-corpo">
+          <div className="res-bl"><b>O que isso significa</b><p>${R.r}</p></div>
+          ${f && html`<div className="res-bl"><b>Falha identificada · ${f.n}</b><p><strong>${f.s}</strong><br/>${f.r}</p></div>`}
+          <div className="res-bl"><b>Onde agir</b><p>${R.onde}</p></div>
+          <div className="res-bl"><b>O que não fazer</b><p>${R.nao}</p></div>
+          <div className="res-bl"><b>Primeira ação</b><p>${R.primeiro}</p></div>
+          <div className="linha" style=${{gap:".5rem",flexWrap:"wrap",marginTop:".2rem"}}>
+            <button className="bt" onClick=${criarReparo}><${Ico} k="mais"/>Criar tarefa no calendário</button>
+            <button className="bt sec" onClick=${salvar}>Só salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  /* ---- assistente ---- */
+  const perguntas = [
+    { et:"Passo 1 de 3", q:"Nas rodadas em que a IA buscou na internet, a sua marca apareceu na resposta?",
+      d:"Considere só as perguntas de descoberta — aquelas em que o cliente não diz o seu nome.",
+      ops:[
+        {v:"varias", t:"Apareceu em várias rodadas", s:"Em 3 ou mais das 7 repetições.", vai:null, campo:"apareceu"},
+        {v:"poucas", t:"Apareceu em 1 ou 2", s:"Aparece, mas raramente ou por último.", vai:null, campo:"apareceu"},
+        {v:"nao",    t:"Não apareceu nenhuma vez", s:"Zero em 7 repetições.", vai:1, campo:"apareceu"}
+      ]},
+    { et:"Passo 2 de 3", q:"O seu site apareceu na lista de fontes citadas?",
+      d:"Abra a resposta e olhe os links que a IA cita no rodapé ou ao lado do texto — mesmo que ela não tenha falado da sua marca.",
+      ops:[
+        {v:"sim", t:"Sim, o meu domínio está entre as fontes", s:"A IA leu o seu site e ainda assim não te indicou.", vai:2, campo:"fonte"},
+        {v:"nao", t:"Não, meu domínio não aparece em nenhuma", s:"A IA nem chegou a considerar o seu site.", vai:null, campo:"fonte"}
+      ]},
+    { et:"Passo 3 de 3", q:"Qual destes sintomas você reconhece na sua página?",
+      d:"Compare a sua página com as dos concorrentes que a IA citou. A diferença costuma ser óbvia quando se olha lado a lado.",
+      ops:Object.entries(FALHAS).map(([k,v])=>({v:k, t:v.n, s:v.s, vai:null, campo:"falha"}))}
+  ];
+  const P = perguntas[passo] || perguntas[0];
+
+  return html`<div className="pilha">
+    <button className="bt fant" onClick=${()=> passo===0 ? reiniciar() : setPasso(passo-1)}>
+      <${Ico} k="volta"/>${passo===0 ? "Voltar à lista" : "Passo anterior"}</button>
+    <div className="dg">
+      <div className="dg-topo">
+        <div className="dg-passos">
+          ${[0,1,2].map(i=>html`<i key=${i} className=${i<idxPasso?"done":i===idxPasso?"on":""}></i>`)}
+        </div>
+        <p className="dg-etq">${P.et}</p>
+        <p style=${{fontSize:".84rem",marginTop:".3rem",color:"#B9CFC1",lineHeight:1.45}}>${pergunta ? "“"+pergunta.texto+"”" : ""}</p>
+      </div>
+      <div className="dg-q"><h3>${P.q}</h3><p>${P.d}</p></div>
+      <div className="dg-ops">
+        ${P.ops.map(o=>html`<button key=${o.v} className="op" onClick=${()=>responder(o.campo,o.v,o.vai)}>
+          <span><b>${o.t}</b><span>${o.s}</span></span><${Ico} k="chevDir"/></button>`)}
+      </div>
+      <div className="dg-pe">
+        <${Ico} k="info"/>
+        <p className="mini" style=${{margin:0}}>Sem medição feita, qualquer resposta aqui é palpite. Rode ao menos 7 repetições antes.</p>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ═════════ FICHAS DO MÉTODO ═════════ */
+const FICHAS = [
+{t:"Como a IA escolhe quem indicar", c:html`
+  <p>Entre a pergunta do cliente e o seu nome na resposta existem <strong>seis etapas</strong>. Você influencia cada uma de um jeito diferente — e quase todo mundo tenta mexer na etapa errada.</p>
+  <table className="tab-min"><thead><tr><th>Etapa</th><th>O que você controla</th></tr></thead><tbody>
+    <tr><td><b>1. A IA busca?</b></td><td>A forma da pergunta. Frase completa aciona busca muito mais que termo solto.</td></tr>
+    <tr><td><b>2. Entra na lista?</b></td><td>Indexação, velocidade, canônicas, consistência de dados. É SEO clássico.</td></tr>
+    <tr><td><b>3. Em que posição?</b></td><td>Consequência do item 2. Não há atalho de texto que compense.</td></tr>
+    <tr><td><b>4. Escolhe você?</b></td><td>Aqui sim o conteúdo decide. É a única etapa que se resolve escrevendo.</td></tr>
+    <tr><td><b>5. Descreve certo?</b></td><td>Consistência entre site, Perfil da Empresa, diretórios e avaliações.</td></tr>
+    <tr><td><b>6. Gera negócio?</b></td><td>Pouco, de forma direta. Trate como indicador atrasado.</td></tr>
+  </tbody></table>
+  <p className="destaque"><b>A conclusão que inverte o mercado:</b> o gargalo não é a citação, é a recuperação. Num teste que mediu o caminho inteiro, mexer só no texto <b>reduziu</b> a presença entre as 20 primeiras em cerca de 9%.</p>`},
+
+{t:"Os quatro porteiros", c:html`
+  <p>O teste mais rigoroso já publicado comparou páginas duas a duas, mudando um fator por vez, com nomes de marca escondidos. Foram 252 mil rodadas em 6 modelos. Quatro fatores foram decisivos em todos.</p>
+  <ol>
+    <li><strong>O assunto bate com a pergunta.</strong> A página responde à pergunta, não à categoria dela.</li>
+    <li><strong>Preço está na página.</strong> “Consulte valores” perde a citação. Faixa de preço já resolve.</li>
+    <li><strong>Data recente e visível.</strong> Data antiga não é detalhe estético — derruba a citação.</li>
+    <li><strong>Posição na lista de candidatos.</strong> Depende do item 2 da ficha anterior.</li>
+  </ol>
+  <p className="destaque"><b>A inversão que importa:</b> colocar o preço é porteiro; deixar a página bonita e bem formatada teve <b>efeito zero</b> no mesmo teste. Trocar “consulte valores” por uma faixa real é a mudança mais barata e mais forte que existe.</p>
+  <p>Depois dos porteiros vêm os diferenciadores, em ordem de força: especificações técnicas, profundidade, evidência para o que se afirma, comparação com alternativas.</p>`},
+
+{t:"Por que a resposta muda toda vez", c:html`
+  <p>Esta é a característica mais mal compreendida do canal. A mesma pergunta, no mesmo dia, devolve respostas diferentes. Não é o algoritmo mudando — é a natureza da IA.</p>
+  <table className="tab-min"><thead><tr><th>Medição</th><th>Margem de erro</th></tr></thead><tbody>
+    <tr><td>1 repetição</td><td><b>0,370</b> — não distingue 20% de 60%</td></tr>
+    <tr><td>7 repetições por dia</td><td>0,081 — o piso publicado</td></tr>
+    <tr><td>Janela de 10 dias</td><td>abaixo de 0,10</td></tr>
+    <tr><td>Janela de 24 dias</td><td>perto de 0,05</td></tr>
+  </tbody></table>
+  <p>Cerca de <strong>65% das fontes citadas trocam de um dia para o outro</strong>. Nomes de marca são um pouco mais estáveis, mas ainda variam muito.</p>
+  <p className="destaque"><b>Consequência prática:</b> relatório semanal com uma consulta por pergunta é ruído com cara de gráfico. E nenhuma leitura que decide alguma coisa antes do dia 76 — mudança de página leva de 2 a 4 semanas para aparecer na citação.</p>`},
+
+{t:"Os quatro tipos de falha", c:html`
+  <p>Quando uma página é do assunto certo e mesmo assim não é citada, a causa quase nunca é falta de texto. Num estudo de 2026, <strong>62% das falhas são desalinhamento com a pergunta</strong> e 27% são qualidade da apresentação.</p>
+  <table className="tab-min"><thead><tr><th>Falha</th><th>Sintoma observável</th></tr></thead><tbody>
+    <tr><td><b>Intenção divergente</b></td><td>A pergunta pede indicação ou preço; a página explica o que é o serviço.</td></tr>
+    <tr><td><b>Lacuna de informação</b></td><td>A IA cita concorrentes que trazem um dado que você não tem na página.</td></tr>
+    <tr><td><b>Informação velha</b></td><td>A IA descreve preço ou horário que você não pratica mais.</td></tr>
+    <tr><td><b>Localização incompatível</b></td><td>Você aparece para a cidade errada, ou some com o nome do seu bairro.</td></tr>
+  </tbody></table>
+  <p className="destaque"><b>O erro que custa caro:</b> aplicar a mesma receita de reescrita nas quatro. O reparo dirigido ao tipo certo levou a citação de 57% para 84% no mesmo estudo.</p>`},
+
+{t:"Mitos, com a fonte oficial", c:html`
+  <p>O Google publicou em maio de 2026 um guia oficial sobre otimização para as funções generativas da busca. Boa parte do que se vende foi desmentida ali.</p>
+  <table className="tab-min"><thead><tr><th>O que vendem</th><th>O que a fonte diz</th></tr></thead><tbody>
+    <tr><td>Você precisa de um arquivo <span className="num">llms.txt</span></td><td>O Google não usa. Nem ajuda nem atrapalha.</td></tr>
+    <tr><td>Precisa picotar o conteúdo</td><td>Não é necessário.</td></tr>
+    <tr><td>Precisa de schema “para IA”</td><td>Não existe schema específico. Use pelos resultados ricos da busca comum.</td></tr>
+    <tr><td>Precisa reescrever tudo “para IA”</td><td>Desnecessário. Em escala, pode acionar a política de spam.</td></tr>
+    <tr><td>Precisa comprar menções</td><td>Os mesmos filtros antispam valem para as respostas de IA.</td></tr>
+    <tr><td>Formatação bonita aumenta citação</td><td>Em teste controlado, efeito zero.</td></tr>
+  </tbody></table>`},
+
+{t:"Como ler o seu número", c:html`
+  <p>Pare de perseguir posição — ela não existe neste canal. O placar correto é <strong>em quantas de cada dez respostas você aparece</strong>, sempre com a faixa de erro ao lado.</p>
+  <table className="tab-min"><thead><tr><th>Indicador</th><th>Como ler</th></tr></thead><tbody>
+    <tr><td><b>Taxa de detecção</b></td><td>Sempre com a faixa de erro. Sem ela o número não é comparável.</td></tr>
+    <tr><td><b>Cobertura de perguntas</b></td><td>Distingue “apareço muito em duas” de “apareço um pouco em todas”.</td></tr>
+    <tr><td><b>Presença nas fontes</b></td><td>Termômetro de recuperação. Em zero, o resto não sai do lugar.</td></tr>
+    <tr><td><b>Fidelidade</b></td><td>Aparição com informação errada é resultado negativo, não positivo.</td></tr>
+    <tr><td><b>Visitas vindas de IA</b></td><td>Indicador atrasado. Nunca como métrica principal.</td></tr>
+  </tbody></table>
+  <p className="destaque"><b>As armadilhas:</b> descartar as rodadas em que a IA não citou ninguém (o denominador encolhe e a taxa sobe sozinha); ler cedo demais; medir um motor só; e comparar sem concorrente — o canal cresceu sozinho, parte da alta não é sua.</p>`},
+
+{t:"Se você for contratar alguém", c:html`
+  <p>Você pode aplicar este método sozinho ou contratar. Se contratar, estas são as perguntas cuja resposta não dá para improvisar.</p>
+  <ol>
+    <li><strong>Quantas vezes vocês repetem cada pergunta por dia?</strong> Sete ou mais. Quem mede sabe o número de cabeça; quem não mede desvia para o painel.</li>
+    <li><strong>Qual a janela do relatório?</strong> Vinte e oito dias rolantes. Semanal não sustenta decisão.</li>
+    <li><strong>O AI Mode do Google está incluso?</strong> É a superfície que mais cita — e em várias ferramentas ele é complemento pago.</li>
+    <li><strong>As rodadas sem busca entram na conta?</strong> Se não entram, o número está inflado.</li>
+    <li><strong>Eu recebo a resposta bruta?</strong> Sem ela não há auditoria possível.</li>
+    <li><strong>O que acontece se o resultado não sair da margem de erro?</strong> A resposta certa é “reportamos que não deu para afirmar”.</li>
+  </ol>
+  <p className="destaque"><b>Sinal de alerta imediato:</b> promessa de posição (“1º lugar no ChatGPT”), garantia com régua trivial (“zero menções em 90 dias”), ou o número “+40% de visibilidade” apresentado como resultado esperado — ele vem de um teste com contexto fixo e não significa 40% mais visitas.</p>`},
+
+{t:"Os limites deste método", c:html`
+  <p>Três limites honestos, para você decidir com o que tem.</p>
+  <p><strong>1.</strong> Quase todo estudo disponível é em inglês, com dados dos Estados Unidos. Não existe benchmark público sólido sobre quais fontes a IA cita em perguntas em português. Os percentuais aqui são <strong>direção</strong>, não valores do seu setor — o seu número só sai medindo o seu caso.</p>
+  <p><strong>2.</strong> Nenhuma técnica tem efeito causal comprovado sobre receita. O que está sustentado é influência sobre citação, e mesmo essa varia por motor e ao longo do tempo. O melhor caso de campo publicado, depois de descontar o crescimento natural da plataforma, ficou em <strong>1,82 vez</strong> — não nas cinco vezes que circulam.</p>
+  <p><strong>3.</strong> O canal está sendo monetizado. Anúncios no ChatGPT ficaram ativos no Brasil em agosto de 2026, nos planos gratuitos. Um plano de doze meses aposta que a janela orgânica continua aberta, e essa aposta não está sob o seu controle.</p>
+  <p className="destaque"><b>Se você só puder fazer uma coisa:</b> rode os primeiros 21 dias e pare. Vinte perguntas, sete repetições, catorze dias. Responde a pergunta que decide todo o resto — qual dos três ramos é o seu — e permite recusar o que você não precisa.</p>`}
+];
+
+function TelaMetodo(){
+  const [aberta,setAberta] = useState(0);
+  return html`<div className="pilha">
+    <div>
+      <h1 className="h-tela">O método</h1>
+      <p className="sub" style=${{marginTop:".2rem"}}>
+        As oito fichas que sustentam cada tarefa do programa. Tudo aqui vem de estudo publicado — onde a evidência é fraca, está escrito.</p>
+    </div>
+    ${FICHAS.map((f,i)=>html`<div key=${i} className="ficha">
+      <button className="ficha-b" aria-expanded=${aberta===i} onClick=${()=>setAberta(aberta===i?-1:i)}>
+        <span className="chip num">${i+1}</span><h3>${f.t}</h3><span className="cv"><${Ico} k="chevD"/></span>
+      </button>
+      <div className="ficha-c" hidden=${aberta!==i}>${f.c}</div>
+    </div>`)}
+  </div>`;
+}
+
+/* ═════════ TELA: AJUSTES ═════════ */
+function TelaAjustes({estado, acoes, avisar}){
+  const p = estado.perfil || {};
+  const [f,setF] = useState({ negocio:p.negocio||"", cidade:p.cidade||"", categoria:p.categoria||"",
+    site:p.site||"", concorrentes:(p.concorrentes||[]).join(", "), inicio:p.inicio||HOJE_ISO() });
+  const [cod,setCod] = useState("");
+  const refArq = useRef(null);
+  const [tema,setTema] = useState(()=>lerLocal("metodo90.tema")||"auto");
+
+  useEffect(()=>{
+    if(tema==="auto") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme",tema);
+    gravarLocal("metodo90.tema",tema);
+  },[tema]);
+
+  function salvarPerfil(){
+    if(!f.negocio.trim()){ avisar("Dê um nome ao negócio."); return; }
+    acoes.mudar(()=>({ perfil:{ ...f, negocio:f.negocio.trim(),
+      concorrentes:f.concorrentes.split(",").map(s=>s.trim()).filter(Boolean) } }));
+    avisar("Programa configurado. Comece pela carteira de perguntas.");
+  }
+  async function exportar(){
+    const nome = "metodo90-" + (estado.ws||"dados") + ".json";
+    const dados = JSON.stringify(estado, null, 2);
+    try{
+      const d = await window.claude?.use?.("downloads");
+      if(d){ await d.save({ filename:nome, data:dados }); return; }
+    }catch(e){ if(e && e.code === "declined") return; }
+    try{
+      const url = URL.createObjectURL(new Blob([dados], {type:"application/json"}));
+      const a = document.createElement("a");
+      a.href = url; a.download = nome; document.body.appendChild(a); a.click();
+      a.remove(); setTimeout(()=>URL.revokeObjectURL(url), 2000);
+    }catch(e){ avisar("Não consegui salvar o arquivo."); }
+  }
+
+  return html`<div className="pilha">
+    <div><h1 className="h-tela">Ajustes</h1></div>
+
+    <div className="cartao cartao-p pilha-s">
+      <p className="sec-t">O seu negócio</p>
+      <label className="campo"><span>Nome do negócio</span>
+        <input value=${f.negocio} onChange=${e=>setF({...f,negocio:e.target.value})} placeholder="Clínica Aurora"/></label>
+      <div className="grade2">
+        <label className="campo"><span>Categoria</span>
+          <input value=${f.categoria} onChange=${e=>setF({...f,categoria:e.target.value})} placeholder="Clínica de estética"/></label>
+        <label className="campo"><span>Cidade ou região</span>
+          <input value=${f.cidade} onChange=${e=>setF({...f,cidade:e.target.value})} placeholder="Sorocaba, SP"/></label>
+      </div>
+      <label className="campo"><span>Site</span>
+        <input value=${f.site} onChange=${e=>setF({...f,site:e.target.value})} placeholder="clinicaaurora.com.br"/></label>
+      <label className="campo"><span>Concorrentes a medir nas mesmas perguntas</span>
+        <input value=${f.concorrentes} onChange=${e=>setF({...f,concorrentes:e.target.value})} placeholder="Separe por vírgula"/></label>
+      <label className="campo"><span>Início do programa de 90 dias</span>
+        <input type="date" value=${f.inicio} onChange=${e=>setF({...f,inicio:e.target.value})}/></label>
+      <button className="bt larg" onClick=${salvarPerfil}>${estado.perfil?"Salvar alterações":"Criar o programa"}</button>
+      ${estado.perfil && f.inicio!==estado.perfil.inicio && html`<p className="mini">
+        Mudar a data de início desloca todo o calendário. As medições já registradas continuam nas datas reais.</p>`}
+    </div>
+
+    <div className="cartao cartao-p pilha-s">
+      <p className="sec-t">Aparência</p>
+      <div className="motores">
+        ${[["auto","Automático"],["light","Claro"],["dark","Escuro"]].map(([v,n])=>html`
+          <button key=${v} className="mot" aria-pressed=${tema===v} onClick=${()=>setTema(v)}>${n}</button>`)}
+      </div>
+    </div>
+
+    <div className="cartao cartao-p pilha-s">
+      <p className="sec-t">Os seus dados</p>
+      <p className="mini">Tudo fica <b>neste navegador</b>, neste aparelho. Nada é enviado para lugar nenhum.
+        Para levar o programa para outro aparelho, baixe o arquivo e carregue lá.</p>
+      <div className="linha" style=${{gap:".5rem"}}>
+        <b className="num" style=${{fontSize:"1.3rem",letterSpacing:".08em"}}>${estado.ws}</b>
+        ${sincAtivo ? html`<span className="chip ok">sincronizando via ${SINC.nome}</span>`
+                    : html`<span className="chip">só neste aparelho</span>`}
+      </div>
+      <div className="linha" style=${{gap:".5rem",flexWrap:"wrap"}}>
+        <button className="bt sec" onClick=${exportar}><${Ico} k="baixar"/>Baixar backup</button>
+        <button className="bt sec" onClick=${()=>refArq.current?.click()}>Carregar backup</button>
+        <input ref=${refArq} type="file" accept="application/json,.json" style=${{display:"none"}}
+          onChange=${async e=>{
+            const f = e.target.files && e.target.files[0]; e.target.value="";
+            if(!f) return;
+            if(!confirm("Carregar este backup substitui tudo o que está neste aparelho. Continuar?")) return;
+            const r = importarEstado(await f.text());
+            avisar(r.ok ? "Backup carregado." : r.erro);
+          }}/>
+      </div>
+
+      <div style=${{borderTop:"1px solid var(--linha-2)",paddingTop:".8rem",marginTop:".2rem"}}>
+        <p className="mini" style=${{marginBottom:".5rem"}}>Se você ligou a sincronização em nuvem no código do app,
+          digite aqui o código do outro aparelho para puxar aquele programa.</p>
+        <div className="linha" style=${{gap:".5rem",flexWrap:"wrap"}}>
+          <input className="num" value=${cod} onChange=${e=>setCod(e.target.value.toUpperCase())}
+            placeholder="Código de outro aparelho" style=${{flex:"1 1 11rem",minHeight:"46px",padding:".55rem .7rem",
+            border:"1px solid var(--linha)",borderRadius:"var(--r-s)",background:"var(--carta)",letterSpacing:".08em"}}/>
+          <button className="bt sec" onClick=${async()=>{
+            const r = await trocarWorkspace(cod);
+            avisar(r.ok ? (r.remoto ? "Espaço carregado da nuvem." : (r.temDados ? "Espaço carregado." : "Espaço novo criado.")) : r.erro);
+            setCod("");
+          }} disabled=${!cod.trim()}>Trocar espaço</button>
+        </div>
+      </div>
+
+      <button className="bt fant" onClick=${()=>{
+        if(confirm("Apagar tudo deste espaço e recomeçar? Não dá para desfazer.")){
+          acoes.zerar(); avisar("Tudo apagado.");
+        }
+      }}>Apagar tudo e recomeçar</button>
+    </div>
+  </div>`;
+}
+
+/* ═════════ FOLHA DE DETALHE DA TAREFA ═════════ */
+function FolhaItem({item, estado, acoes, fechar, irPara}){
+  const t = item.tipo==="tarefa" ? item.t : null;
+  const nome = item.tipo==="ritual" ? "Registrar a coleta de hoje"
+             : item.tipo==="reparo" ? ("Reparar: " + item.r.pergunta) : t.n;
+  const frente = item.tipo==="ritual" ? "medicao" : item.tipo==="reparo" ? "reparo" : t.f;
+  const falha = item.tipo==="reparo" ? FALHAS[item.r.falha] : null;
+  const passos = t ? t.p : item.tipo==="ritual"
+    ? ["Abra uma janela anônima e confirme que está deslogado.",
+       "Confira a localização que o navegador informa — resposta local muda inteira com o CEP.",
+       "Rode cada pergunta da carteira 7 vezes, em cada motor.",
+       "Registre em quantas das 7 a sua marca apareceu e se o seu site entrou nas fontes.",
+       "Registre também as rodadas em que a IA não buscou. Elas entram no denominador."]
+    : [falha ? falha.r : "", "Compare a sua página com a do concorrente que a IA citou, lado a lado.",
+       "Aplique os quatro porteiros: preço, data, especificação, comparação.",
+       "Depois de publicar, espere de 2 a 4 semanas antes de julgar o efeito."].filter(Boolean);
+  return html`<div>
+    <div className="folha-fundo" onClick=${fechar}></div>
+    <div className="folha" role="dialog" aria-modal="true" aria-label=${nome}>
+      <div className="folha-p"></div>
+      <div className="folha-cab">
+        <div style=${{flex:1,minWidth:0}}>
+          <p className="mini"><span className="chip"><i className=${"faixa-frente fr-"+frente}
+            style=${{width:"3px",height:"11px",display:"inline-block"}}></i>${FRENTES[frente].n}</span>
+            ${t && html` <span className="chip num">dias ${t.d0}–${t.d1}</span>`}
+            ${t && t.crit && html` <span className="chip cr">caminho crítico</span>`}</p>
+          <h2 className="h-sec" style=${{marginTop:".35rem"}}>${nome}</h2>
+        </div>
+        <button className="icb" onClick=${fechar} aria-label="Fechar"><${Ico} k="x"/></button>
+      </div>
+      <div className="folha-corpo pilha">
+        ${t && html`<p className="sub">${t.o}</p>`}
+        ${falha && html`<div className="aviso"><${Ico} k="alerta"/><div><b>${falha.n}.</b> ${falha.s}</div></div>`}
+        <div>
+          <p className="sec-t">Como fazer</p>
+          <ol style=${{margin:0,paddingLeft:"1.15rem",fontSize:".9rem",lineHeight:1.6,color:"var(--tinta-2)"}}>
+            ${passos.map((s,i)=>html`<li key=${i} style=${{marginBottom:".45rem"}}>${s}</li>`)}
+          </ol>
+        </div>
+        <div className="linha" style=${{gap:".5rem",flexWrap:"wrap"}}>
+          <button className=${"bt" + (item.feito?" sec":"")} onClick=${()=>{acoes.alternar(item); fechar();}}>
+            <${Ico} k="check"/>${item.feito ? "Desmarcar" : "Marcar como feito"}</button>
+          ${(t?.ir || item.tipo==="ritual") && html`<button className="bt sec"
+            onClick=${()=>{ fechar(); irPara(item.tipo==="ritual" ? "medir" : t.ir); }}>
+            Abrir a ferramenta<${Ico} k="chevDir"/></button>`}
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ═════════ APP ═════════ */
+const ABAS = [
+  {id:"hoje", n:"Hoje", ic:"hoje"},
+  {id:"cal", n:"Calendário", ic:"cal"},
+  {id:"medir", n:"Medir", ic:"graf"},
+  {id:"diag", n:"Diagnóstico", ic:"ramo"},
+  {id:"metodo", n:"Método", ic:"livro"}
+];
+
+function App(){
+  const [estado,setEstado] = useState(()=>iniciarEstado());
+  const [aba,setAba] = useState("hoje");
+  const [dia,setDia] = useState(null);
+  const [item,setItem] = useState(null);
+  const [toast,setToast] = useState(null);
+  const tRef = useRef(null);
+
+  useEffect(()=>{
+    const f = e => setEstado({...e});
+    ouvintes.add(f);
+    conectarSinc();
+    return ()=>ouvintes.delete(f);
+  },[]);
+
+  const avisar = useCallback(msg=>{
+    setToast(msg); clearTimeout(tRef.current);
+    tRef.current = setTimeout(()=>setToast(null), 2600);
+  },[]);
+
+  const acoes = useMemo(()=>({
+    mudar,
+    alternar: it => mudar(e=>({ tarefas:{...e.tarefas, [it.chave]: e.tarefas[it.chave] ? 0 : 1} })),
+    abrirDia: iso => setDia(iso),
+    abrirItem: it => setItem(it),
+    zerar: () => { const ws = ESTADO.ws; ESTADO = estadoVazio(ws); comprometer(); }
+  }),[]);
+
+  const irPara = useCallback(id=>{ setAba(id); setDia(null); setItem(null); window.scrollTo(0,0); },[]);
+
+  useEffect(()=>{
+    if(!dia && !item) return;
+    const f = ev => { if(ev.key === "Escape"){ if(item) setItem(null); else setDia(null); } };
+    document.addEventListener("keydown", f);
+    return ()=>document.removeEventListener("keydown", f);
+  },[dia,item]);
+  const dp = diaPrograma(estado, HOJE_ISO());
+  const abertosHoje = dp ? itensDoDia(estado, HOJE_ISO()).itens.filter(i=>!i.feito).length : 0;
+
+  const tela = aba==="hoje" ? html`<${TelaHoje} estado=${estado} acoes=${acoes} irPara=${irPara}/>`
+    : aba==="cal" ? html`<${TelaCalendario} estado=${estado} acoes=${acoes} irPara=${irPara}/>`
+    : aba==="carteira" ? html`<${TelaCarteira} estado=${estado} acoes=${acoes} avisar=${avisar}/>`
+    : aba==="medir" ? html`<${TelaMedir} estado=${estado} acoes=${acoes} avisar=${avisar} irPara=${irPara}/>`
+    : aba==="diag" ? html`<${TelaDiag} estado=${estado} acoes=${acoes} avisar=${avisar} irPara=${irPara}/>`
+    : aba==="ajustes" ? html`<${TelaAjustes} estado=${estado} acoes=${acoes} avisar=${avisar}/>`
+    : html`<${TelaMetodo}/>`;
+
+  return html`
+    <div className="app">
+      <header className="topo">
+        <div className="topo-marca">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect width="24" height="24" rx="6" fill="var(--pinho)"/>
+            <path d="M6 8h12l-8 8h8" stroke="var(--folha)" strokeWidth="2" fill="none"
+              strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <div style=${{minWidth:0}}>
+            <p className="topo-t">Método 90 Dias</p>
+            <p className="topo-sub">${estado.perfil ? (dp ? "dia "+dp+" de 90" : "programa fora da janela") : "não configurado"}</p>
+          </div>
+        </div>
+        <div className="topo-dir">
+          <button className=${"icb" + (aba==="carteira"?" ativo":"")} onClick=${()=>irPara("carteira")}
+            aria-label="Carteira de perguntas"><${Ico} k="pino"/></button>
+          <button className="icb" onClick=${()=>irPara("ajustes")} aria-label="Ajustes"><${Ico} k="eng"/></button>
+        </div>
+      </header>
+
+      <nav className="abas" aria-label="Seções">
+        ${ABAS.map(a=>html`<button key=${a.id} className="aba" aria-current=${aba===a.id?"page":undefined}
+          onClick=${()=>irPara(a.id)}>
+          <${Ico} k=${a.ic}/><span>${a.n}</span>
+          ${a.id==="hoje" && abertosHoje>0 && html`<span className="aba-pip num">${abertosHoje}</span>`}
+        </button>`)}
+      </nav>
+
+      <div className="quadro"><main className="corpo">${tela}</main></div>
+
+      ${dia && html`<${FolhaDia} iso=${dia} estado=${estado} acoes=${{...acoes, abrirItem:setItem}} fechar=${()=>setDia(null)}/>`}
+      ${item && html`<${FolhaItem} item=${item} estado=${estado} acoes=${acoes}
+        fechar=${()=>setItem(null)} irPara=${irPara}/>`}
+      ${toast && html`<div className="toast" role="status">${toast}</div>`}
+    </div>`;
+}
+
+ReactDOM.createRoot(document.getElementById("raiz")).render(html`<${App}/>`);
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function(){
+    navigator.serviceWorker.register("sw.js").catch(function(){});
+  });
+}
+</script>
+</body>
+</html>
