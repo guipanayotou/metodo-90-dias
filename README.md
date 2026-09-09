@@ -13,19 +13,19 @@ Um app de página única, sem back-end. Tudo fica no seu navegador — nada é e
 |---|---|
 | **Hoje** | A sequência do dia: entender → verificar → fazer → medir. |
 | **Programa** | As 5 fases, 18 tarefas e 4 marcos, em lista e em calendário. |
-| **Ferramentas** | Medição com faixa de confiança, diagnóstico guiado e carteira de perguntas. |
+| **Ferramentas** | Medição com rotação diária e faixa de erro, diagnóstico guiado, carteira de perguntas e as 12 verificações técnicas. |
 | **Livro** | A teoria inteira em 56 seções, ligada a cada tarefa e a cada conceito. |
 
 ## O livro
 
-O sistema é a execução do livro **“Fazer a IA indicar você — Método 90 Dias”** (58 páginas).
+O sistema é a execução do livro **“Fazer a IA indicar você — Método 90 Dias”** (105 páginas, 16 capítulos).
 O livro ensina e traz as fontes; o app executa. Cada capítulo do livro tem, aqui dentro, a tela
 que faz o trabalho — e cada seção do app diz de qual capítulo ela veio.
 
 ## Método, em uma linha
 
-De 20 a 30 perguntas congeladas, 3 motores, 7 repetições por pergunta por dia, janela de 24 dias
-antes de qualquer leitura decisória. Todo número sai com faixa de erro e tamanho de amostra.
+De 20 a 30 perguntas fechadas, 3 motores, 7 rodadas por pergunta, 5 perguntas por dia em rotação,
+24 dias antes de qualquer conclusão. Todo número sai com faixa de erro e número de rodadas.
 
 ## Rodar localmente
 
