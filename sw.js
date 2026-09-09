@@ -1,6 +1,6 @@
 /* Rede primeiro, cache como rede de seguranca.
    Uma versao nova sempre vence, e o app continua abrindo sem internet. */
-const CACHE = "metodo90-v1";
+const CACHE = "metodo90-v2";
 const ESSENCIAIS = ["./", "./index.html", "./manifest.json", "./icone.svg"];
 
 self.addEventListener("install", e => {
